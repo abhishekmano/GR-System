@@ -23,6 +23,7 @@
         </md-card-content>
         <md-card-actions md-alignment="space-between">
             <a @click="toggle">Not registered? Click here </a>
+            <a @click="toggle">Forgot password </a>
             <md-button  @click="submit" class="md-dense md-raised md-primary">Log In</md-button>
         </md-card-actions>
       </md-card>
