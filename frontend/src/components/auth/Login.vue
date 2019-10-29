@@ -20,34 +20,61 @@
             <md-input type="password" name="email" id="email" autocomplete="email" v-model="form.password"/>
             <span class="md-error">{{ error.passMsg }}</span>
           </md-field>
+ 
+                    <div>
+                     <md-card class="md-layout-item md-size-70">
+                         
+                        <md-dialog :md-active.sync="showDialog">
+                        <md-dialog-title>Forgot Password</md-dialog-title>
+                        
+                        <div style="padding:1.5vh">
+                            <md-field>  
+                                <label for="oldpassword">Enter registered email id</label>
+                                <md-input name="oldpassword" id="oldpassword" v-model="form.oldpassword" />   
+                            </md-field>
+                         </div>
+                        <md-dialog-actions>
+                            <md-button class="md-primary" @click="showDialog = false">Submit</md-button>
+                            <md-button class="md-primary" @click="showDialog = false">Cancel</md-button>
+                        </md-dialog-actions>
+                        </md-dialog>  
+                         
+                     </md-card>
+                    </div>
+   
         </md-card-content>
         <md-card-actions md-alignment="space-between">
             <a @click="toggle">Not registered? Click here </a>
-            <a @click="toggle">Forgot password </a>
+            <a @click="showDialog = true">Forgot Password</a>
             <md-button  @click="submit" class="md-dense md-raised md-primary">Log In</md-button>
         </md-card-actions>
       </md-card>
     </form>
   </div>
+  
 </template>
 
 <script>
   import axios from 'axios'
   export default {
     name: 'Login',
-    data: () => ({
-      form: {
-        userName:null,
-        password:null
-      },
-      error: {
-        userErr: false,
-        userMsg: null,
-        passErr: false,
-        passMsg: null
+    data: function(){
+      return{
+        form: {
+          userName:null,
+          password:null,
+          oldpassword:"",
+          newpassword:""
+        },
+        error: {
+          userErr: false,
+          userMsg: null,
+          passErr: false,
+          passMsg: null
+        },
+        showDialog:false
       }
-
-    }),
+    },
     methods: {
        submit:function(){
         // console.log(this.form);
