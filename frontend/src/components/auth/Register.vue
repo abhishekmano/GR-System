@@ -55,12 +55,12 @@
 <!-- TEST COMMENT
  -->
 
-        <md-ripple>
+       
         <md-card-actions md-alignment="space-between">
           <a @click="toggle">Registered? Sign in</a>
           <md-button @click="submit" class="md-dense md-raised md-primary">Register</md-button>
         </md-card-actions>
-        </md-ripple>
+        
       </md-card>
     </form>
   </div>
