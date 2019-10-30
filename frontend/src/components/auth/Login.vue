@@ -34,9 +34,24 @@
                             </md-field>
                          </div>
                         <md-dialog-actions>
-                            <md-button class="md-primary" @click="showDialog = false">Submit</md-button>
+                            <md-button class="md-primary" @click="showDialog = false ,submitFlag = true">Submit</md-button>
                             <md-button class="md-primary" @click="showDialog = false">Cancel</md-button>
                         </md-dialog-actions>
+                        </md-dialog>  
+                         
+                     </md-card>
+                    </div>
+
+                    <div>
+                     <md-card class="md-layout-item ">
+                         
+                        <md-dialog :md-active.sync="submitFlag">
+                        <md-dialog-title></md-dialog-title>
+                        
+                        <div style="padding:1.5vh">
+                            <md-content style="text-align: center"> Reset link sent </md-content>
+                         </div>
+                        
                         </md-dialog>  
                          
                      </md-card>
@@ -72,7 +87,8 @@
           passErr: false,
           passMsg: null
         },
-        showDialog:false
+        showDialog:false,
+        submitFlag: false
       }
     },
     methods: {
