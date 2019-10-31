@@ -34,8 +34,10 @@
                             </md-field>
                          </div>
                         <md-dialog-actions>
-                            <md-button class="md-primary" @click="showDialog = false ,submitFlag = true,forgotp">Submit</md-button>
+                            <md-button class="md-primary" @click="forgotp" >Submit</md-button>
                             <md-button class="md-primary" @click="showDialog = false">Cancel</md-button>
+                            <md-button class="md-primary" @click="forgotp">funcall</md-button>
+
                         </md-dialog-actions>
                         </md-dialog>  
                          
@@ -131,7 +133,9 @@
           this.$emit('toggle')
       },
       forgotp:function(){
-
+        this.showDialog = false,
+        this.submitFlag = true,
+        console.log("forgotpcalled");
       }
     }
   }
