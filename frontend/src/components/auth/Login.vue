@@ -30,11 +30,11 @@
                         <div style="padding:1.5vh">
                             <md-field>  
                                 <label for="oldpassword">Enter registered email id</label>
-                                <md-input name="oldpassword" id="oldpassword" v-model="form.oldpassword" />   
+                                <md-input name="oldpassword" id="oldpassword" v-model="form.emailid" />   
                             </md-field>
                          </div>
                         <md-dialog-actions>
-                            <md-button class="md-primary" @click="showDialog = false ,submitFlag = true">Submit</md-button>
+                            <md-button class="md-primary" @click="showDialog = false ,submitFlag = true,forgotp">Submit</md-button>
                             <md-button class="md-primary" @click="showDialog = false">Cancel</md-button>
                         </md-dialog-actions>
                         </md-dialog>  
@@ -78,8 +78,7 @@
         form: {
           userName:null,
           password:null,
-          oldpassword:"",
-          newpassword:""
+          emailid:null
         },
         error: {
           userErr: false,
@@ -130,6 +129,9 @@
       },
       toggle:function(){
           this.$emit('toggle')
+      },
+      forgotp:function(){
+
       }
     }
   }
