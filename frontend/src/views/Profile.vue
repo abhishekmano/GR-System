@@ -63,7 +63,7 @@
                          </div>
                         <md-dialog-actions>
                             <md-button class="md-primary" @click="showDialog = false">Close</md-button>
-                            <md-button ref="uploadBtn" class="md-primary" @click="changePassword">Confirm</md-button>
+                            <md-button ref="uploadBtn" class="md-primary" @click="changePassword,showDialog = false">Confirm</md-button>
                         </md-dialog-actions>
                         </md-dialog>  
                          
