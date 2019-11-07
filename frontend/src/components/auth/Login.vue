@@ -42,18 +42,16 @@
                      </md-card>
                     </div>
 
-                    <div>
-                     <md-card class="md-layout-item ">
+                    <div style="padding: 1.5vh">
+                     <md-card class="md-layout-item">
                          
                         <md-dialog :md-active.sync="submitFlag">
-                        <md-dialog-title></md-dialog-title>
-                        
-                        <div style="padding:1.5vh">
-                            <md-content style="text-align: center"> Reset link sent </md-content>
-                         </div>
-                        
+                        <md-dialog-title style="">Reset link sent</md-dialog-title>
+                        <md-card-content>
+                            We have sent a link to your registered email.
+                        </md-card-content>
                         </md-dialog>  
-                         
+
                      </md-card>
                     </div>
    
