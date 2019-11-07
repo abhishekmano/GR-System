@@ -45,6 +45,7 @@ router.post('/updateProfile', (req,res) => {
 })
 
 router.post('/updatepwd',(req,res) => {
+    console.log("updatepasswordcalled");
     var info = {
         username: req.body.username,
         old: req.body.old,
