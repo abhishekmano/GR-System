@@ -2,8 +2,10 @@ const express = require('express')
 const router = express.Router()
 const userMethods = require('../../../methods/user')
 const peopleMethods = require('../../../methods/people')
+const bcrypt = require('bcrypt')
 
-router.get('/profile',(req,res) => {
+router.get('/getProfile',(req,res) => {
+    console.log("trying to retrieve");
     var info = {
         username: req.query.username
     }
@@ -45,7 +47,7 @@ router.post('/updateProfile', (req,res) => {
 })
 
 router.post('/updatepwd',(req,res) => {
-    console.log("updatepasswordcalled");
+    console.log("updatepasswordcalled for user");
     var info = {
         username: req.body.username,
         old: req.body.old,
