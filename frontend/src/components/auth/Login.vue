@@ -36,7 +36,6 @@
                         <md-dialog-actions>
                             <md-button class="md-primary" @click="forgotp" >Submit</md-button>
                             <md-button class="md-primary" @click="showDialog = false">Cancel</md-button>
-                            <md-button class="md-primary" @click="forgotp">funcall</md-button>
 
                         </md-dialog-actions>
                         </md-dialog>  
