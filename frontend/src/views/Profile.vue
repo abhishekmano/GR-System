@@ -53,17 +53,22 @@
                         <div style="padding:1.5vh">
                             <md-field>  
                                 <label for="oldpassword">Old Password</label>
-                                <md-input name="oldpassword" id="oldpassword" v-model="form.oldpassword" />   
+                                <md-input type ="password" name="oldpassword" id="oldpassword" v-model="form.oldpassword" />   
                             </md-field>
                         
                             <md-field>  
                                 <label for="newpassword">New Password</label>
-                                <md-input name="newpassword" id="newpassword" v-model="form.newpassword" />   
+                                <md-input type ="password" name="newpassword" id="newpassword" v-model="form.newpassword" />   
+                            </md-field>
+
+                            <md-field>  
+                                <label for="newpassword">Confirm New Password</label>
+                                <md-input type ="password" name="newpassword" id="newpassword" v-model="form.confpassword" />   
                             </md-field>
                          </div>
                         <md-dialog-actions>
                             <md-button class="md-primary" @click="showDialog = false">Close</md-button>
-                            <md-button ref="uploadBtn" class="md-primary" @click="changePassword,showDialog = false">Confirm</md-button>
+                            <md-button ref="uploadBtn" class="md-primary" @click="changePassword">Confirm</md-button>
                         </md-dialog-actions>
                         </md-dialog>  
                          
@@ -127,12 +132,16 @@ export default {
     return {
       form:{
           username:this.$store.getters.userName,
-          name:"hello",
+          name:"Test",
           email:"email@email.com",
-          phone:"7034240550",
+          phone:"123456789",
           oldpassword:"",
-          newpassword:""
+          newpassword:"",
+          confpassword:"",
+          usertype:this.$store.getters.usertype
+          
       },
+      
       showDialog:false,
       showNavigation: false
     }
@@ -147,17 +156,18 @@ export default {
                   Authorization: "Bearer " + this.$store.getters.bearerToken
                }
             }
-            axios.post(process.env.VUE_APP_ROOT_API+'profile/cell/updateProfile',{data:data},config)
+            axios.post(process.env.VUE_APP_ROOT_API+'profile/'+data.usertype+'/updateProfile',{data:data},config)
             .then((res)=>{
                 console.log("saved ");
                 console.log(res);              
-                alert("Successfully saved");
+                alert("Profile updated");
             })
             .catch((err)=>{
                 console.log(err);
             })
       },
       changePassword:function(){
+        this.showDialog = false
         console.log("changing.....")
         var self = this
         var data = {
@@ -168,12 +178,15 @@ export default {
         var config={
             headers: { Authorization: "Bearer " + this.$store.getters.bearerToken }
         }
-        axios.post(process.env.VUE_APP_ROOT_API+'profile/cell/updatepwd',data,config)
+        axios.post(process.env.VUE_APP_ROOT_API+'profile/user/updatepwd',data,config)
             .then((res)=>{
+                alert("Password updated");
                 console.log(res.data)
                 self.$router.push('/')
             })
             .catch((err)=>{
+                alert("Incorrect password");
+                console.log("Evidoooo thettund");
                 console.log(err);
             })  
       }
@@ -181,7 +194,7 @@ export default {
   mounted(){
       console.log("Retrieving profile");
         var self = this;
-        axios.get(process.env.VUE_APP_ROOT_API+'profile/cell/getProfile',{
+        axios.get(process.env.VUE_APP_ROOT_API+'profile/'+this.$store.getters.usertype+'/getProfile',{
             params: {
                 username:this.$store.getters.userName
             },
