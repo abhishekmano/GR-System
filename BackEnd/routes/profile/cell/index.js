@@ -30,8 +30,14 @@ router.get('/getProfile', (req,res) => {
 })
 
 router.post('/updateProfile', (req,res) => {
-    var info = req.body.data
-    peopleMethods.updateProfile(info)
+    var info ={ 
+        username: req.body.username,
+        name: req.body.name,
+        role: req.body.usertype,
+        email: req.body.email,
+        phone:req.body.phone
+        }
+    peopleMethods.updateCellProfile(info)
     .then((cell) => {
         res.json({
             success:true

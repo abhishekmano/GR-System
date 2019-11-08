@@ -71,7 +71,7 @@ cellMethods.addUser = (info) => {
     })
 }
 
-cellMethods.getUserByUsername = (info) => {
+cellMethods.getCellByUsername = (info) => {
     return new Promise((resolve,reject) => {
         model.findOne({
             where: {

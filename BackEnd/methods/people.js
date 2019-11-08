@@ -1,7 +1,7 @@
 const model = require('../models/').people
 const Promise = require('bluebird')
 const userMethods = require('./user')
-
+const cellMethods = require('./cell')
 var peopleMethods = {}
 
 peopleMethods.getPeopleByEmail = (info) => {
@@ -111,6 +111,26 @@ peopleMethods.updatePerson = (info) => {
 peopleMethods.updateProfile = (info) => {
     return new Promise((resolve,reject) => {
         userMethods.findUserByUsername(info)
+        .then((user) => {
+            console.log(user);
+            model.update(info,{
+                where:{
+                    people_id:user.people_id
+                }
+            })
+            .then((res) => {
+                resolve(res)
+            })
+        })
+        .catch((err) => {
+            reject(err)
+        })  
+    })
+}
+
+peopleMethods.updateCellProfile = (info) => {
+    return new Promise((resolve,reject) => {
+        cellMethods.getCellByUsername(info)
         .then((user) => {
             console.log(user);
             model.update(info,{
