@@ -1,9 +1,9 @@
 <template>
   <div>
-    <form novalidate class="md-layout md-alignment-space-around-center" style="padding-top: 3vh">
-      <md-card class="md-layout-item">
+    <form novalidate class="md-layout md-alignment-space-around-center" style="padding-top: 5vh">
+      <md-card class="md-layout-item login-form">
         <md-card-header>
-          <div class="md-title"><strong>Log In</strong></div>
+          <div class="md-title" style="font-weight:bolder;"><strong>Log In</strong></div>
         </md-card-header>
 
         <md-card-content class="md-layout md-alignment-space-around-center">
@@ -27,7 +27,7 @@
                         <md-dialog :md-active.sync="showDialog">
                         <md-dialog-title>Forgot Password</md-dialog-title>
                         
-                        <div style="padding:1.5vh">
+                        <div class="popup">
                             <md-field>  
                                 <label for="oldpassword">Enter registered email id</label>
                                 <md-input name="oldpassword" id="oldpassword" v-model="form.emailid" />   
@@ -47,7 +47,7 @@
                      <md-card class="md-layout-item">
                          
                         <md-dialog :md-active.sync="submitFlag">
-                        <md-dialog-title style="">Reset link sent</md-dialog-title>
+                        <md-dialog-title>Reset link sent</md-dialog-title>
                         <md-card-content>
                             We have sent a link to your registered email.
                         </md-card-content>
@@ -57,10 +57,10 @@
                     </div>
    
         </md-card-content>
-        <md-card-actions md-alignment="space-between">
-            <a @click="toggle">Not registered? Click here </a>
-            <a @click="showDialog = true">Forgot Password</a>
-            <md-button  @click="submit" class="md-dense md-raised md-primary">Log In</md-button>
+        <md-card-actions md-alignment="space-between" style="text-align: center;">
+            <a style="cursor: pointer;" @click="toggle">Not registered? Click here </a>
+            <a style="cursor: pointer;" @click="showDialog = true">Forgot Password</a>
+            <md-button  @click="submit" class="md-dense md-raised md-primary login-button">Log In</md-button>
         </md-card-actions>
       </md-card>
     </form>
@@ -144,6 +144,27 @@
     top: 0;
     right: 0;
     left: 0;
+  }
+
+  .login-form{
+    border-radius: 15px;
+    padding-inline: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .login-button{
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  
+  
+  .popup{
+    padding: 10%;
   }
 /*  */
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <form novalidate class="md-layout md-alignment-space-around-center" style="padding-top: 3vh">
-      <md-card class="md-layout-item " md-with-hover >
+      <md-card class="md-layout-item login-form " md-with-hover >
         <md-card-header>
           <div class="md-title"><strong>Register</strong></div>
         </md-card-header>
@@ -153,5 +153,12 @@
     top: 0;
     right: 0;
     left: 0;
+  }
+
+  .login-form{
+    border-radius: 15px;
+    padding-inline: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
   }
 </style>

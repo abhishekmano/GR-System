@@ -8,7 +8,7 @@
       <h1> College of Engineering Trivandrum </h1>
       <h2> Online Grievance Redressal System </h2>
     </div>
-    <div class="md-layout-item md-size-35 md-xsmall-size-90 md-small-size-90 signup-form">
+    <div class="md-layout-item md-size-30 md-xsmall-size-90 md-small-size-90 signup-form">
       <login v-if="!register" @toggle="toggleReg" />
       <register v-if="register" @toggle="toggleReg"/>
     </div>
@@ -64,7 +64,7 @@ h1{
     
   }
   .signup-form{
-  padding-bottom: 4vh;
+    padding-bottom: 15vh;
   }
 }
 
