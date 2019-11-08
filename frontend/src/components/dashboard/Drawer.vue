@@ -5,11 +5,11 @@
           <img :src="images.cet">
         </md-avatar>
       </md-toolbar>
-      <md-list>
+      <md-list style="padding: 50px;">
           <a href="/#/dashboard" >
             <md-list-item>
               <md-icon>home</md-icon>
-              <span class="md-list-item-text">Dashboard</span>
+              <span class="md-list-item-text" style="font-size: 15pt;">Dashboard</span>
             </md-list-item>          
           </a>
           <a href="/#/profile"  >

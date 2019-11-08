@@ -1,7 +1,7 @@
 <template>
   <div>
     <form novalidate class="md-layout md-alignment-space-around-center" style="padding-top: 3vh">
-      <md-card class="md-layout-item login-form " md-with-hover >
+      <md-card class="md-layout-item login-form ">
         <md-card-header>
           <div class="md-title"><strong>Register</strong></div>
         </md-card-header>
@@ -57,8 +57,8 @@
 
        
         <md-card-actions md-alignment="space-between">
-          <a @click="toggle">Registered? Sign in</a>
-          <md-button @click="submit" class="md-dense md-raised md-primary">Register</md-button>
+          <a @click="toggle" style="cursor: pointer; color: #00b73d !important;">Registered? Sign in</a>
+          <md-button @click="submit" class="md-dense md-raised md-primary register-button">Register</md-button>
         </md-card-actions>
         
       </md-card>
@@ -161,4 +161,15 @@
     padding-bottom: 10px;
     padding-top: 10px;
   }
+
+  .register-button{
+    background-color: #00b73d !important;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 4px;
+  }
+
 </style>

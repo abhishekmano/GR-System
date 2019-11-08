@@ -1,15 +1,15 @@
 <template>
-    <div>
+    <div style="padding: 50px;">
         <div class="md-layout md-gutter md-alignment-top-center">
           <a @click="route('status')">
             <md-card md-with-hover>
               <md-ripple>
                 <md-card-header>
-                  <div class="md-title">Check Grievance Status</div>
+                  <div class="md-title" style="font-size: 15pt;">Check Grievance Status</div>
                 </md-card-header>
 
                 <md-card-content>
-                  <md-icon class="md-size-3x">info</md-icon>
+                  <md-icon class="md-size-2x">info</md-icon>
                 </md-card-content>
               </md-ripple>
             </md-card>
@@ -18,11 +18,11 @@
             <md-card md-with-hover>
               <md-ripple>
                 <md-card-header>
-                  <div class="md-title">View Ongoing Grievances</div>
+                  <div class="md-title" style="font-size: 15pt;">View Ongoing Grievances</div>
                 </md-card-header>
 
                 <md-card-content>
-                  <md-icon class="md-size-3x">error_outline</md-icon>
+                  <md-icon class="md-size-2x">error_outline</md-icon>
                 </md-card-content>
               </md-ripple>
             </md-card>
@@ -33,11 +33,11 @@
           <md-card md-with-hover>
             <md-ripple>
               <md-card-header>
-                <div class="md-title">View Resolved Grievances</div>
+                <div class="md-title" style="font-size: 15pt;">View Resolved Grievances</div>
               </md-card-header>
 
               <md-card-content>
-                <md-icon class="md-size-3x">history</md-icon>
+                <md-icon class="md-size-2x">history</md-icon>
               </md-card-content>
             </md-ripple>
           </md-card>
@@ -46,11 +46,11 @@
             <md-card md-with-hover>
         <md-ripple>
           <md-card-header>
-          <div class="md-title">Submit a Grievance</div>
+          <div class="md-title" style="font-size: 15pt;">Submit a Grievance</div>
           </md-card-header>
 
           <md-card-content>
-          <md-icon class="md-size-3x">check_circle_outline</md-icon>
+          <md-icon class="md-size-2x">check_circle_outline</md-icon>
           </md-card-content>
         </md-ripple>
             </md-card>
@@ -87,6 +87,8 @@ export default {
     margin: 4px;
     display: inline-block;
     vertical-align: top;
+    border-radius: 10px;
+    font-size: 10pt !important;
   }
 
      // Demo purposes only

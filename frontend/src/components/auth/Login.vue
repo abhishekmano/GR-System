@@ -6,7 +6,7 @@
           <div class="md-title" style="font-weight:bolder;"><strong>Log In</strong></div>
         </md-card-header>
 
-        <md-card-content class="md-layout md-alignment-space-around-center">
+        <md-card-content class="md-layout md-alignment-space-around-center " style="padding: 30px;">
           <md-field v-bind:class="{'md-invalid': error.userErr}" class="md-layout-item">
             <label for="email">User Name</label>
             <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.userName"/>
@@ -14,7 +14,7 @@
           </md-field>
         </md-card-content>
 
-        <md-card-content class="md-layout md-alignment-space-around-center">
+        <md-card-content class="md-layout md-alignment-space-around-center content">
           <md-field v-bind:class="{'md-invalid': error.passErr}" class="md-layout-item">
             <label for="email">Password</label>
             <md-input type="password" name="email" id="email" autocomplete="email" v-model="form.password"/>
@@ -22,7 +22,7 @@
           </md-field>
  
                     <div>
-                     <md-card class="md-layout-item md-size-70">
+                     <md-card class="md-layout-item md-size-70 ">
                          
                         <md-dialog :md-active.sync="showDialog">
                         <md-dialog-title>Forgot Password</md-dialog-title>
@@ -34,8 +34,8 @@
                             </md-field>
                          </div>
                         <md-dialog-actions>
-                            <md-button class="md-primary" @click="forgotp" >Submit</md-button>
-                            <md-button class="md-primary" @click="showDialog = false">Cancel</md-button>
+                            <md-button class="md-primary" @click="forgotp"  style="color: #00b73d !important;">Submit</md-button>
+                            <md-button class="md-primary" @click="showDialog = false" style="color: #00b73d !important;">Cancel</md-button>
 
                         </md-dialog-actions>
                         </md-dialog>  
@@ -57,9 +57,9 @@
                     </div>
    
         </md-card-content>
-        <md-card-actions md-alignment="space-between" style="text-align: center;">
-            <a style="cursor: pointer;" @click="toggle">Not registered? Click here </a>
-            <a style="cursor: pointer;" @click="showDialog = true">Forgot Password</a>
+        <md-card-actions md-alignment="space-between" style="text-align: center; padding: 50px;">
+            <a style="cursor: pointer; color: #00b73d !important;" @click="toggle">Not registered? Click here </a>
+            <a style="cursor: pointer; color: #00b73d !important;" @click="showDialog = true">Forgot Password</a>
             <md-button  @click="submit" class="md-dense md-raised md-primary login-button">Log In</md-button>
         </md-card-actions>
       </md-card>
@@ -148,23 +148,67 @@
 
   .login-form{
     border-radius: 15px;
-    padding-inline: 10px;
-    padding-bottom: 10px;
     padding-top: 10px;
+    height: 475px !important;
   }
 
-  .login-button{
+  // .login-button{
+  //   background-color: #00b73d !important;
+  //   border-radius: 10px; 
+  //   text-align: center;
+  //   font-weight: bold;
+  //   padding-left: 2%;
+  //   padding-right: 2%;
+  //   padding-top: 4px;
+  // }
+
+  .login-button {
     border-radius: 10px;
-    text-align: center;
-    font-weight: bold;
     padding-left: 2%;
     padding-right: 2%;
-  }
+    padding-top: 4px;
+
+ z-index: 1;
+  position: relative;
+  font-weight: bold;
+  font-family: inherit;
+  color: white !important;
+  //padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color: hsl(125, 58%, 24%) !important;
+  overflow: hidden;
+  transition: color 0.4s ease-in-out;
+}
+
+.login-button::before {
+   content: '';
+  z-index: -1;
+  position: absolute;
+  top: 100%;
+  right: 100%;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #3cefff !important;
+  transform-origin: center;
+  transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0);
+  transition: transform 0.45s ease-in-out;
+}
+
+.login-button:hover {
+  cursor: pointer;
+  color:white !important;
+}
+
+.login-button:hover::before {
+   transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
+}
+
 
   
-  
-  .popup{
-    padding: 10%;
+  .content{
+    padding: 30px;
   }
 /*  */
 </style>

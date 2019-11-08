@@ -3,7 +3,7 @@
     <md-app-toolbar class="md-primary" >
       <Navbar @toggleNav = "showNavigation = !showNavigation" />
     </md-app-toolbar>
-    <md-app-drawer md-permanent="clipped" :md-active.sync="showNavigation">
+    <md-app-drawer md-permanent="clipped" :md-active.sync="showNavigation" style="padding: 15px;">
       <Drawer />
     </md-app-drawer>
     <md-app-content>
@@ -42,6 +42,11 @@
   @import "~vue-material/src/components/MdCard/theme";
 .md-app{
     height: inherit;
+
+
+    .md-primary{
+      background-color:  #00b73d !important;
+    }
   }
   
 
