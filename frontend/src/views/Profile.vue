@@ -178,15 +178,19 @@ export default {
         var config={
             headers: { Authorization: "Bearer " + this.$store.getters.bearerToken }
         }
-        axios.post(process.env.VUE_APP_ROOT_API+'profile/user/updatepwd',data,config)
+        axios.post(process.env.VUE_APP_ROOT_API+'profile/'+this.$store.getters.usertype+'/updatepwd',data,config)
             .then((res)=>{
-                alert("Password updated");
-                console.log(res.data)
-                self.$router.push('/')
+                if (res.data.success == true) {
+                    alert("Password Updated ");    // Daaa ivide oru variable true vech puthiya box kanik
+                    self.$router.push('/')
+                }
+                else{
+                    alert("incorrect password");   // ividem
+                }
+                console.log(res.data.success);
+                
             })
             .catch((err)=>{
-                alert("Incorrect password");
-                console.log("Evidoooo thettund");
                 console.log(err);
             })  
       }
