@@ -110,12 +110,9 @@ peopleMethods.updatePerson = (info) => {
 
 peopleMethods.updateProfile = (info) => {
     return new Promise((resolve,reject) => {
-        userMethods.findUserByUsername({
-            where:{
-                user_name:info.username
-            }
-        })
+        userMethods.findUserByUsername(info)
         .then((user) => {
+            console.log(user);
             model.update(info,{
                 where:{
                     people_id:user.people_id

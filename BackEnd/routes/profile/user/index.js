@@ -5,7 +5,6 @@ const peopleMethods = require('../../../methods/people')
 const bcrypt = require('bcrypt')
 
 router.get('/getProfile',(req,res) => {
-    console.log("trying to retrieve");
     var info = {
         username: req.query.username
     }
@@ -31,7 +30,16 @@ router.get('/getProfile',(req,res) => {
 })
 
 router.post('/updateProfile', (req,res) => {
-    var info = req.body.data
+    //console.log(req);
+    var info ={ 
+        username: req.body.username,
+        name: req.body.name,
+        role: req.body.usertype,
+        email: req.body.email,
+        phone:req.body.phone
+        }
+        console.log('updateProfile');
+        console.log('debug: '+info);
     peopleMethods.updateProfile(info)
     .then((user) => {
         res.json({
@@ -47,7 +55,6 @@ router.post('/updateProfile', (req,res) => {
 })
 
 router.post('/updatepwd',(req,res) => {
-    console.log("updatepasswordcalled for user");
     var info = {
         username: req.body.username,
         old: req.body.old,
