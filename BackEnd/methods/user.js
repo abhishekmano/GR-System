@@ -1,4 +1,4 @@
-const model = require('../models').user
+ const model = require('../models').user
 const uniqid = require('uniqid')
 const Promise = require('bluebird')
 const studentMethods = require('./student')

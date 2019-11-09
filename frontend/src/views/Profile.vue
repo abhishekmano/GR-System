@@ -152,20 +152,28 @@ export default {
   methods:{
       updateProfile:function(){
           console.log("updating.....")
-          var self=this
-          var data=self.form
+          var self = this
+          var data = {
+              username: this.form.username,
+              name: this.form.name,
+              usertype: this.form.usertype,
+              email: this.form.email,
+              phone:this.form.phone
+              }
+          console.log(data);
           var config={
               headers: { 
                   Authorization: "Bearer " + this.$store.getters.bearerToken
                }
             }
-            axios.post(process.env.VUE_APP_ROOT_API+'profile/'+data.usertype+'/updateProfile',{data:data},config)
+            axios.post(process.env.VUE_APP_ROOT_API+'profile/'+data.usertype+'/updateProfile',data,config)
             .then((res)=>{
                 console.log("saved ");
-                console.log(res);              
-                alert("Profile updated");
+                console.log(res.data.err);              
+                //alert("Profile updated");
             })
             .catch((err)=>{
+                console.log("Failed");
                 console.log(err);
             })
       },
@@ -183,7 +191,7 @@ export default {
         }
         axios.post(process.env.VUE_APP_ROOT_API+'profile/'+this.$store.getters.usertype+'/updatepwd',data,config)
             .then((res)=>{
-                if (res.data.success == true) {
+                if (res.data.success) {
                     alert("Password Updated ");    // Daaa ivide oru variable true vech puthiya box kanik
                     self.$router.push('/')
                 }
