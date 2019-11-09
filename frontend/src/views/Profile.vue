@@ -117,6 +117,9 @@
  .md-primary{
    background-color:  #00b73d !important;
 
+.md-button.md-theme-default.md-primary{
+    color: white !important;
+}
  }
   
 </style>

@@ -5,7 +5,7 @@
           <img :src="images.cet">
         </md-avatar>
       </md-toolbar>
-      <md-list>
+      <md-list style="padding-top: 25px;">
           <a href="/#/dashboard" >
             <md-list-item>
               <md-icon>home</md-icon>
@@ -59,5 +59,12 @@ export default {
     border-radius: 10px !important;
 }
 
+.md-list-item-content{
+  padding: 20px 80px !important;
+}
+
+.md-list-item-text{
+  font-size: 15pt;
+}
 
 </style>
