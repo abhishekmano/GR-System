@@ -131,9 +131,9 @@ export default {
     return {
       form:{
           username:this.$store.getters.userName,
-          name:"Test",
-          email:"email@email.com",
-          phone:"123456789",
+          name:"",
+          email:"",
+          phone:"",
           oldpassword:"",
           newpassword:"",
           confpassword:"",
@@ -165,8 +165,8 @@ export default {
             axios.post(process.env.VUE_APP_ROOT_API+'profile/'+data.usertype+'/updateProfile',data,config)
             .then((res)=>{
                 console.log("saved ");
-                console.log(res.data.err);              
-                //alert("Profile updated");
+                console.log(res);  
+                alert("Profile updated");
             })
             .catch((err)=>{
                 console.log("Failed");
@@ -204,6 +204,7 @@ export default {
   },
   mounted(){
       console.log("Retrieving profile");
+      console.log(this.$store.getters.usertype);
         var self = this;
         axios.get(process.env.VUE_APP_ROOT_API+'profile/'+this.$store.getters.usertype+'/getProfile',{
             params: {

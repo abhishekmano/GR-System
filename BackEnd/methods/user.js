@@ -2,7 +2,7 @@
 const uniqid = require('uniqid')
 const Promise = require('bluebird')
 const studentMethods = require('./student')
-// const peopleMethods = require('./people')
+//const peopleMethods = require('./people')
 const Joi = require('joi')
 const bcrypt = require('bcrypt')
 

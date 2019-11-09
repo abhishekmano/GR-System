@@ -2,6 +2,7 @@ const model = require('../models/').people
 const Promise = require('bluebird')
 const userMethods = require('./user')
 const cellMethods = require('./cell')
+
 var peopleMethods = {}
 
 peopleMethods.getPeopleByEmail = (info) => {
@@ -129,8 +130,10 @@ peopleMethods.updateProfile = (info) => {
 }
 
 peopleMethods.updateCellProfile = (info) => {
+    console.log("Called Update cell"+info.email)
     return new Promise((resolve,reject) => {
-        cellMethods.getCellByUsername(info)
+       cellMethods.getUserByUsername(info)
+       //userMethods.findUserByUsername(info)
         .then((user) => {
             console.log(user);
             model.update(info,{
