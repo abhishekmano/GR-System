@@ -27,9 +27,7 @@
   .md-toolbar + .md-toolbar {
     margin-top: 16px;
   }
-</style>
 
-<style lang="scss" scoped>
   .md-toolbar + .md-toolbar {
     margin-top: 16px;
   }

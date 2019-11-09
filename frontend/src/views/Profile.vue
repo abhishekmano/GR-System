@@ -1,6 +1,5 @@
 <template>
   <md-app >
-      sfafaefae
     <md-app-toolbar class="md-primary" >
       <Navbar @toggleNav = "showNavigation = !showNavigation" />
     </md-app-toolbar>
@@ -113,9 +112,13 @@
 .md-app{
     height: inherit;
   }
+
+
+ .md-primary{
+   background-color:  #00b73d !important;
+
+ }
   
-
-
 </style>
 
 <script>

@@ -5,11 +5,11 @@
           <img :src="images.cet">
         </md-avatar>
       </md-toolbar>
-      <md-list style="padding: 50px;">
+      <md-list>
           <a href="/#/dashboard" >
             <md-list-item>
               <md-icon>home</md-icon>
-              <span class="md-list-item-text" style="font-size: 15pt;">Dashboard</span>
+              <span class="md-list-item-text">Dashboard</span>
             </md-list-item>          
           </a>
           <a href="/#/profile"  >
@@ -50,5 +50,14 @@ export default {
 </script>
 
 <style>
+
+.md-avatar.md-large {
+    min-width: 64px;
+    min-height: 64px;
+    font-size: 32px;
+    margin-top: 24px;
+    border-radius: 10px !important;
+}
+
 
 </style>

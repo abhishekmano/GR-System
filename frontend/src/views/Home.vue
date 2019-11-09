@@ -8,7 +8,7 @@
       <h1> College of Engineering Trivandrum </h1>
       <h2> Online Grievance Redressal System </h2>
     </div>
-    <div class="md-layout-item md-size-30 md-xsmall-size-90 md-small-size-90 signup-form">
+    <div class="md-layout-item md-size-25 md-xsmall-size-90 md-small-size-90 signup-form" style="margin: 70px;">
       <login v-if="!register" @toggle="toggleReg" />
       <register v-if="register" @toggle="toggleReg"/>
     </div>
@@ -53,9 +53,11 @@ export default {
 } */
 h1{
   line-height: initial;
+  font-size: 25pt;
 }
 .image-header{
-  padding: 4vh;
+  padding: 2vh;
+  margin: 200px;
   
 }
 @media screen and (max-width: 960px) {
@@ -67,6 +69,7 @@ h1{
     padding-bottom: 15vh;
   }
 }
+
 
 </style>
 
