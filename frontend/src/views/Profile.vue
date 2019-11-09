@@ -50,9 +50,10 @@
                         <md-dialog-title>Change Password</md-dialog-title>
                         
                         <div style="padding:1.5vh">
-                            <md-field>  
+                            <md-field v-bind:class="{'md-invalid': error.passErr}" class="md-layout-item">  
                                 <label for="oldpassword">Old Password</label>
-                                <md-input type ="password" name="oldpassword" id="oldpassword" v-model="form.oldpassword" />   
+                                <md-input type ="password" name="oldpassword" id="oldpassword" v-model="form.oldpassword" /> 
+                                <span class="md-error">{{ error.passMsg }}</span>  
                             </md-field>
                         
                             <md-field>  
@@ -144,6 +145,10 @@ export default {
           usertype:this.$store.getters.usertype
           
       },
+      error: {
+          passErr: false,
+          passMsg: null
+        },
       
       showDialog:false,
       showNavigation: false
@@ -196,7 +201,9 @@ export default {
                     self.$router.push('/')
                 }
                 else{
-                    alert("incorrect password");   // ividem
+                    this.error.passMsg = "Incorrect Password"
+                    this.error.passErr = true
+                    //alert("incorrect password");   // ividem
                 }
                 console.log(res.data.success);
                 
