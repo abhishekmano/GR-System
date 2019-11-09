@@ -14,7 +14,7 @@
           </md-field>
         </md-card-content>
 
-        <md-card-content class="md-layout md-alignment-space-around-center content">
+        <md-card-content class="md-layout md-alignment-space-around-center content" style="padding: 30px;">
           <md-field v-bind:class="{'md-invalid': error.passErr}" class="md-layout-item">
             <label for="email">Password</label>
             <md-input type="password" name="email" id="email" autocomplete="email" v-model="form.password"/>
@@ -57,10 +57,14 @@
                     </div>
    
         </md-card-content>
-        <md-card-actions md-alignment="space-between" style="text-align: center; padding: 50px;">
+        <md-card-actions>
+                      <md-button  @click="submit" class="md-dense md-raised md-primary login-button" style="font-size: 13pt;">Log In</md-button>
+
+        </md-card-actions>
+        <md-card-actions md-alignment="space-between" style="text-align: center; padding: 25px; margin-top: 50px;">
             <a style="cursor: pointer; color: #00b73d !important;" @click="toggle">Not registered? Click here </a>
-            <a style="cursor: pointer; color: #00b73d !important;" @click="showDialog = true">Forgot Password</a>
-            <md-button  @click="submit" class="md-dense md-raised md-primary login-button">Log In</md-button>
+            <a style="cursor: pointer; color: #00b73d !important;" @click="showDialog = true">Forgot Password </a> 
+            <!--<md-button  @click="submit" class="md-dense md-raised md-primary login-button">Log In</md-button>-->
         </md-card-actions>
       </md-card>
     </form>
@@ -149,7 +153,8 @@
   .login-form{
     border-radius: 15px;
     padding-top: 10px;
-    height: 475px !important;
+    height: 550px !important;
+
   }
 
   // .login-button{
@@ -163,6 +168,9 @@
   // }
 
   .login-button {
+    text-transform: none;
+    height: 40px !important;
+    width: 120px !important;
     border-radius: 10px;
     padding-left: 2%;
     padding-right: 2%;
@@ -205,10 +213,13 @@
    transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
 }
 
+.md-card-actions.md-alignment-right{
+  justify-content: center;
+}
 
   
-  .content{
-    padding: 30px;
+  .popup{
+    padding: 20px;
   }
 /*  */
 </style>
