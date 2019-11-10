@@ -8,7 +8,7 @@
     </md-app-drawer>
     <md-app-content>
             <div class="md-layout md-alignment-center-center">
-            <md-card class="md-layout-item md-size-70">
+            <md-card class="md-layout-item md-size-45">
                 <md-card-header>
                     <div class="md-title" style="font-weight: bold; font-size: 20pt;">Profile</div>
                 </md-card-header>
@@ -45,7 +45,7 @@
   <!--  Modal -->
 
                     <div>
-                     <md-card class="md-layout-item md-size-70">
+                     <md-card class="md-layout-item md-size-45">
                          
                         <md-dialog :md-active.sync="showDialog">
                         <md-dialog-title>Change Password</md-dialog-title>
@@ -114,7 +114,9 @@
     height: inherit;
   }
 
-
+.md-card{
+    border-radius: 15px;
+}
  .md-primary{
    background-color:  #00b73d !important;
 
@@ -122,11 +124,18 @@
     color: white !important;
 }
  }
+ 
+ .md-card-actions.md-alignment-right {
+    justify-content: space-around;
+    padding: 5%;
+}
+ 
 
  .md-button{
+     justify-content: space-around;
     text-transform: none;
     height: 40px !important;
-    width: 150px !important;
+    width: 153px !important;
     border-radius: 10px;
     padding-left: 2%;
     padding-right: 2%;
@@ -167,6 +176,15 @@
 
 .md-button:hover::before {
    transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
+}
+
+.update{
+    width: 130px !important;
+    font-size: 10pt !important;
+}
+
+.change{
+    font-size: 10pt !important;
 }
   
 </style>
