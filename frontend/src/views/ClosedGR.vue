@@ -77,12 +77,15 @@ export default {
   }
 
    // Demo purposes only
-  .md-drawer {
-    width: 230px;
+ .md-drawer {
+    width: 400px;
     max-width: calc(100vw - 125px);
     color: antiquewhite;
   }
 
+  .md-primary{
+        background-color:  #00b73d !important;
+  }
   .md-content {
     padding: 16px;
   }

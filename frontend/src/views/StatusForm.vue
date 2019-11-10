@@ -132,7 +132,7 @@ export default {
     height: inherit;
 }
 .md-drawer {
-    width: 230px;
+    width: 400px;
     max-width: calc(100vw - 125px);
     color: antiquewhite;
   }

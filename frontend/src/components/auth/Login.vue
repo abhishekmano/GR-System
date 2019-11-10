@@ -34,8 +34,8 @@
                             </md-field>
                          </div>
                         <md-dialog-actions>
-                            <md-button class="md-primary" @click="forgotp"  style="color: #00b73d !important;">Submit</md-button>
-                            <md-button class="md-primary" @click="showDialog = false" style="color: #00b73d !important;">Cancel</md-button>
+                            <md-button class="md-primary login-button" @click="forgotp"  style="color: #ffffff !important;">Submit</md-button>
+                            <md-button class="md-primary login-button" @click="showDialog = false" style="color: #ffffff !important;">Cancel</md-button>
 
                         </md-dialog-actions>
                         </md-dialog>  
@@ -174,7 +174,7 @@
     border-radius: 10px;
     padding-left: 2%;
     padding-right: 2%;
-    padding-top: 4px;
+    padding-top: 0px;
 
  z-index: 1;
   position: relative;

@@ -75,8 +75,8 @@ export default {
   }
 
    // Demo purposes only
-  .md-drawer {
-    width: 230px;
+.md-drawer {
+    width: 400px;
     max-width: calc(100vw - 125px);
     color: antiquewhite;
   }

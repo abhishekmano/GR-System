@@ -14,9 +14,9 @@
                 </md-card-header>
                 <md-card-content >
                     <md-list>
-                        <md-list-item><span class="md-headline">Greivance Cell, College of Engineering, Trivandum</span></md-list-item>
+                        <md-list-item><span class="md-headline">Grievance Cell, College of Engineering, Trivandrum</span></md-list-item>
                         <md-list-item><span class="md-headline "><md-icon>call</md-icon> +91-471-1234567</span></md-list-item>
-                        <md-list-item><span class="md-headline "><md-icon>email</md-icon> greivancecell@cet.ac.in</span></md-list-item>
+                        <md-list-item><span class="md-headline "><md-icon>email</md-icon> grievancecell@cet.ac.in</span></md-list-item>
                     </md-list>
                 </md-card-content>
             </md-card>

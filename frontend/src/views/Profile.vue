@@ -48,9 +48,9 @@
                      <md-card class="md-layout-item md-size-45">
                          
                         <md-dialog :md-active.sync="showDialog">
-                        <md-dialog-title>Change Password</md-dialog-title>
+                        <md-dialog-title style="text-align:center;">Change Password</md-dialog-title>
                         
-                        <div style="padding:1.5vh">
+                        <div style="padding:35px;" >
                             <md-field>  
                                 <label for="oldpassword">Old Password</label>
                                 <md-input type ="password" name="oldpassword" id="oldpassword" v-model="form.oldpassword" />   
@@ -66,7 +66,7 @@
                                 <md-input type ="password" name="newpassword" id="newpassword" v-model="form.confpassword" />   
                             </md-field>
                          </div>
-                        <md-dialog-actions>
+                        <md-dialog-actions style="padding: 5%; margin-bottom: 2%;">
                             <md-button class="md-primary" @click="showDialog = false"  style="font-size: 11pt;">Close</md-button>
                             <md-button ref="uploadBtn" class="md-primary" @click="changePassword"  style="font-size: 11pt;">Confirm</md-button>
                         </md-dialog-actions>
@@ -186,6 +186,10 @@
 .change{
     font-size: 10pt !important;
 }
+
+.md-dialog{
+    border-radius: 15px;
+  }
   
 </style>
 
