@@ -25,7 +25,7 @@
                      <md-card class="md-layout-item md-size-70 ">
                          
                         <md-dialog :md-active.sync="showDialog">
-                        <md-dialog-title>Forgot Password</md-dialog-title>
+                        <md-dialog-title style="font-size: 16pt; text-align: center;">Forgot Password</md-dialog-title>
                         
                         <div class="popup">
                             <md-field>  
@@ -220,6 +220,10 @@
   
   .popup{
     padding: 20px;
+  }
+
+  .md-dialog{
+    border-radius: 15px;
   }
 /*  */
 </style>
