@@ -10,12 +10,13 @@
             <div class="md-layout md-alignment-center-center">
             <md-card class="md-layout-item md-size-70">
                 <md-card-header>
-                    <div class="md-title">Profile</div>
+                    <div class="md-title" style="font-weight: bold; font-size: 20pt;">Profile</div>
                 </md-card-header>
                 <md-card-content>
                     <div class="md-layout md-gutter md-alignment-center-center">
                         <div class="md-layout-item md-size-70 md-small-size-100">
                             <md-field>
+                                <label for="username">Username</label>
                                 <md-input disabled="true" name="username" id="username" v-model="form.username" />
                             </md-field>
                         </div>

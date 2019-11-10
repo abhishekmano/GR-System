@@ -15,8 +15,8 @@
             Sign Up
           </md-button>
 
-          <md-button v-if="$store.getters.isLoggedIn" @click="logout">
-            Logout
+          <md-button v-if="$store.getters.isLoggedIn" @click="logout" class="logout">
+            Log out
           </md-button>
 
         </div>
@@ -24,15 +24,25 @@
 </template>
 
 <style lang="scss" scoped>
+
+.md-toolbar-row{
+  background-color: #00b73d !important;
+}
   .md-toolbar + .md-toolbar {
     margin-top: 16px;
+    
   }
 
-  .md-toolbar + .md-toolbar {
-    margin-top: 16px;
-  }
   .md-drawer{
     height: 400vh;
+  }
+
+  .logout{
+    border-radius: 10px;
+    border-color: black;
+    background-color: #018f30;
+    font-weight: bold;
+    text-transform: none;
   }
 </style>
 

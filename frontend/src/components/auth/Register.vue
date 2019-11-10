@@ -162,14 +162,51 @@
     padding-top: 10px;
   }
 
-  .register-button{
-    background-color: #00b73d !important;
+  .register-button {
+    font-size: 12pt !important;
+    text-transform: none;
+    height: 40px !important;
+    width: 120px !important;
     border-radius: 10px;
-    text-align: center;
-    font-weight: bold;
     padding-left: 2%;
     padding-right: 2%;
     padding-top: 4px;
-  }
+
+ z-index: 1;
+  position: relative;
+  font-weight: bold;
+  font-family: inherit;
+  color: white !important;
+  //padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color: hsl(125, 58%, 24%) !important;
+  overflow: hidden;
+  transition: color 0.4s ease-in-out;
+}
+
+.register-button::before {
+   content: '';
+  z-index: -1;
+  position: absolute;
+  top: 100%;
+  right: 100%;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #3cefff !important;
+  transform-origin: center;
+  transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0);
+  transition: transform 0.45s ease-in-out;
+}
+
+.register-button:hover {
+  cursor: pointer;
+  color:white !important;
+}
+
+.register-button:hover::before {
+   transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
+}
 
 </style>
