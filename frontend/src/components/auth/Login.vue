@@ -3,7 +3,7 @@
     <form novalidate class="md-layout md-alignment-space-around-center" style="padding-top: 5vh">
       <md-card class="md-layout-item login-form">
         <md-card-header>
-          <div class="md-title" style="font-weight:bolder;"><strong>Log In</strong></div>
+          <div class="md-title" style="font-weight:bolder; font-size: 20pt;"><strong>Log In</strong></div>
         </md-card-header>
 
         <md-card-content class="md-layout md-alignment-space-around-center " style="padding: 30px;">

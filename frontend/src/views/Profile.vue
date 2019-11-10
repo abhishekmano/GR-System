@@ -67,8 +67,8 @@
                             </md-field>
                          </div>
                         <md-dialog-actions>
-                            <md-button class="md-primary" @click="showDialog = false">Close</md-button>
-                            <md-button ref="uploadBtn" class="md-primary" @click="changePassword">Confirm</md-button>
+                            <md-button class="md-primary" @click="showDialog = false"  style="font-size: 11pt;">Close</md-button>
+                            <md-button ref="uploadBtn" class="md-primary" @click="changePassword"  style="font-size: 11pt;">Confirm</md-button>
                         </md-dialog-actions>
                         </md-dialog>  
                          
@@ -77,10 +77,10 @@
    <!--  Modal Ends -->
 
              </md-card-content>
-                        <md-card-actions>
-                            <md-button type="submit" class="md-raised md-primary" @click="updateProfile">Update Profile</md-button>
-                            <md-button type="submit" class="md-raised md-primary" @click="showDialog = true">Change Password</md-button>
-                        </md-card-actions> 
+                <md-card-actions>
+                    <md-button type="submit" class="md-raised md-primary update" @click="updateProfile" >Update Profile</md-button>
+                    <md-button type="submit" class="md-raised md-primary change" @click="showDialog = true" style="font-size: 9pt;" >Change Password</md-button>
+                </md-card-actions> 
 
             </md-card>
 
@@ -122,6 +122,52 @@
     color: white !important;
 }
  }
+
+ .md-button{
+    text-transform: none;
+    height: 40px !important;
+    width: 150px !important;
+    border-radius: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 4px;
+
+ z-index: 1;
+  position: relative;
+  font-weight: bold;
+  font-family: inherit;
+  color: white !important;
+  //padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color: hsl(125, 58%, 24%) !important;
+  overflow: hidden;
+  transition: color 0.4s ease-in-out;
+}
+
+.md-button::before {
+   content: '';
+  z-index: -1;
+  position: absolute;
+  top: 100%;
+  right: 100%;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #3cefff !important;
+  transform-origin: center;
+  transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0);
+  transition: transform 0.45s ease-in-out;
+}
+
+.md-button:hover {
+  cursor: pointer;
+  color:white !important;
+}
+
+.md-button:hover::before {
+   transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
+}
   
 </style>
 

@@ -70,6 +70,9 @@ export default {
 .md-list.md-theme-default .router-link-exact-active .md-list-item-content .md-list-item-text{
   font-size: 20pt;
   color :black ;
+
 }
+
+
 
 </style>

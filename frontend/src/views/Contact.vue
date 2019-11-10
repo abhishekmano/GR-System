@@ -53,6 +53,7 @@ export default {
 
 .md-card{
     margin: 50px 150px !important;
+    border-radius: 15px;
 }
 
 .md-display-2{

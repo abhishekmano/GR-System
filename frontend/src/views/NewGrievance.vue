@@ -8,7 +8,7 @@
         </md-app-drawer>
         <md-app-content>
             <div class="md-layout md-alignment-center-center">
-            <md-card class="md-layout-item md-size-70">
+            <md-card class="md-layout-item md-size-70" style="border-radius : 15px;">
                 <md-card-header>
                     <div class="md-title">Create new Grievance</div>
                 </md-card-header>
@@ -50,8 +50,8 @@
                     </div>
    <!-- FIle upload Modal Ends -->
                 </md-card-content>
-                        <md-card-actions>
-                            <md-button type="submit" class="md-raised md-primary" @click="save">Save</md-button>
+                        <md-card-actions style="justify-content: center;">
+                            <md-button type="submit" class="md-raised md-primary" @click="save">Save</md-button> &nbsp; &nbsp; 
                             <md-button type="submit" class="md-raised md-accent" @click="submit">Submit</md-button>
                             <md-button v-if="showButton" class="md-primary md-raised" @click="showDialog = true">Upload File</md-button>
                         </md-card-actions>
@@ -192,9 +192,13 @@ export default {
     height: inherit;
   }
 
+.md-primary{
+       background-color:  #00b73d !important;
+
+}
    // Demo purposes only
   .md-drawer {
-    width: 230px;
+    width: 400px;
     max-width: calc(100vw - 125px);
     color: antiquewhite;
   }
