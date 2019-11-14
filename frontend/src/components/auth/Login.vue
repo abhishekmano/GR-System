@@ -217,13 +217,15 @@
   justify-content: center;
 }
 
-  
-  .popup{
-    padding: 20px;
-  }
-
+.popup{
+  padding: 20px;
+}
   .md-dialog{
     border-radius: 15px;
+  }
+
+  .md-dialog-actions{
+    justify-content: space-around;
   }
 /*  */
 </style>

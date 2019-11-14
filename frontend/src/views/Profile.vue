@@ -74,6 +74,36 @@
                          
                      </md-card>
                     </div>
+
+
+                    <div>
+                     <md-card class="md-layout-item md-size-45">
+                         
+                        <md-dialog :md-active.sync="updProf">
+                        <md-dialog-title style="text-align:center;">Update Profile</md-dialog-title>
+                        
+                        <div style="padding:35px; text-align : center;" >
+                            <span>Details has been updated.</span>
+                         </div>
+                        </md-dialog>  
+                         
+                     </md-card>
+                    </div>
+
+
+                     <div>
+                     <md-card class="md-layout-item md-size-45">
+                         
+                        <md-dialog :md-active.sync="updPass">
+                        <md-dialog-title style="text-align:center;">Update Password</md-dialog-title>
+                        
+                        <div style="padding:35px; text-align : center;" >
+                            <span>Password has been updated.</span>
+                         </div>
+                        </md-dialog>  
+                         
+                     </md-card>
+                    </div>
    <!--  Modal Ends -->
 
              </md-card-content>
@@ -132,7 +162,7 @@
  
 
  .md-button{
-     justify-content: space-around;
+    justify-content: space-around;
     text-transform: none;
     height: 40px !important;
     width: 153px !important;
@@ -218,7 +248,10 @@ export default {
       },
       
       showDialog:false,
-      showNavigation: false
+      showNavigation: false,
+      updProf: false,
+      incPass: false,
+      updPass : false
     }
   },
   methods:{
@@ -240,6 +273,7 @@ export default {
             }
             axios.post(process.env.VUE_APP_ROOT_API+'profile/'+data.usertype+'/updateProfile',data,config)
             .then((res)=>{
+                this.updProf = true
                 console.log("saved ");
                 console.log(res.data.err);              
                 //alert("Profile updated");
@@ -258,17 +292,21 @@ export default {
             old: this.form.oldpassword,
             password: this.form.newpassword
         }
+        console.log(data);
         var config={
             headers: { Authorization: "Bearer " + this.$store.getters.bearerToken }
         }
         axios.post(process.env.VUE_APP_ROOT_API+'profile/'+this.$store.getters.usertype+'/updatepwd',data,config)
             .then((res)=>{
                 if (res.data.success) {
-                    alert("Password Updated ");    // Daaa ivide oru variable true vech puthiya box kanik
-                    self.$router.push('/')
+                    this.updPass=true
+                    //alert("Password Updated ");    // Daaa ivide oru variable true vech puthiya box kanik
+                     self.$router.push('/')
                 }
                 else{
-                    alert("incorrect password");   // ividem
+                    this.incPass = true
+                    // console.log(incPass)
+                    // alert("incorrect password");   // ividem
                 }
                 console.log(res.data.success);
                 

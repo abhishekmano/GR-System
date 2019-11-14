@@ -21,7 +21,7 @@
                 </form>
                 <div class="md-layout-item md-size-100">
                     <md-content class="md-accent">
-                        A verification token has been sent to your registered e-mail. Please enter it below
+                        A verification token has been sent to your registered e-mail. Please enter it in the space.
                     </md-content>
                 </div>
             </div>
