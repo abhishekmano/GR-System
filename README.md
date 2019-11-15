@@ -1,2 +1,2 @@
-#Grievance redressal cell 
-College of Engineering Trivandrum.
+# Grievance Redresal Cell
+## College of Engineering Trivandrum
