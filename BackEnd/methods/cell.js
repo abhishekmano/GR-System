@@ -3,7 +3,7 @@ const uniqid = require('uniqid')
 const Promise = require('bluebird')
 const Joi = require('joi')
 const bcrypt = require('bcrypt')
-const peopleMethods = require('../methods/people')
+//const peopleMethods = require('../methods/people') uncomment this to add cell member
 
 const cellMethods = {}
 
@@ -32,7 +32,7 @@ cellMethods.addNewUser = (info) => {
     })
 }
 
-cellMethods.addUser = (info) => {
+/*cellMethods.addUser = (info) => {   adding cell member
     return new Promise((resolve,reject) => {
         Joi.validate(info, schema, (err, value) => {
             if(err === null){
@@ -69,9 +69,10 @@ cellMethods.addUser = (info) => {
             }
         })
     })
-}
+}*/
 
-cellMethods.getCellByUsername = (info) => {
+cellMethods.getUserByUsername = (info) => {
+    console.log("Ivide ethunnooo"+info.email)
     return new Promise((resolve,reject) => {
         model.findOne({
             where: {
