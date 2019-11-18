@@ -104,6 +104,20 @@
                          
                      </md-card>
                     </div>
+
+                    <div>
+                     <md-card class="md-layout-item md-size-45">
+                         
+                        <md-dialog :md-active.sync="incPass">
+                        <md-dialog-title style="text-align:center;">Password Update Failed</md-dialog-title>
+                        
+                        <div style="padding:35px; text-align : center;" >
+                            <span>Password not updated.</span>
+                         </div>
+                        </md-dialog>  
+                         
+                     </md-card>
+                    </div>
    <!--  Modal Ends -->
 
              </md-card-content>
@@ -301,7 +315,7 @@ export default {
                 if (res.data.success) {
                     this.updPass=true
                     //alert("Password Updated ");    // Daaa ivide oru variable true vech puthiya box kanik
-                     self.$router.push('/')
+                     //self.$router.push('/')
                 }
                 else{
                     this.incPass = true
@@ -309,6 +323,8 @@ export default {
                     // alert("incorrect password");   // ividem
                 }
                 console.log(res.data.success);
+                console.log(this.updPass);
+                console.log(this.incPass);
                 
             })
             .catch((err)=>{
