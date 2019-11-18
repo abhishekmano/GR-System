@@ -125,7 +125,7 @@
              </md-card-content>
                 <md-card-actions>
                     <md-button type="submit" class="md-raised md-primary update" @click="updateProfile" >Update Profile</md-button>
-                    <md-button type="submit" class="md-raised md-primary change" @click="showDialog = true" style="font-size: 9pt;" >Change Password</md-button>
+                    <md-button type="submit" class="md-raised md-primary change" @click="makeallnull" style="font-size: 9pt;" >Change Password</md-button>
                 </md-card-actions> 
 
             </md-card>
@@ -185,7 +185,7 @@
     border-radius: 10px;
     padding-left: 2%;
     padding-right: 2%;
-    padding-top: 4px;
+    // padding-top: 4px;
 
  z-index: 1;
   position: relative;
@@ -322,6 +322,7 @@ export default {
             .then((res)=>{
                 if (res.data.success) {
                     this.updPass = true
+                   
                      //self.$router.push('/')
                 }
                 if(res.data.success == false){
@@ -344,15 +345,24 @@ export default {
       checkPassword:function(){
           if(this.form.confpassword == this.form.newpassword){
               this.changePassword();
+              //this.makeallnull();
           }
 
           else{
               console.log("password doesnt match");
               this.error.passErr = true;
               this.error.passMsg = "Passwords Doesnt match";
-              //this.incPass=true;
-              //this.showDialog=false;
           }
+      },
+
+      makeallnull:function(){
+          console.log("makeall value null called");
+          this.form.newpassword = "";
+          this.form.oldpassword = "";
+          this.form.confpassword = "";
+          this.error.passErr = false;
+          this.error.oldpassErr = false;
+          this.showDialog = true ;
       }
   },
   mounted(){
