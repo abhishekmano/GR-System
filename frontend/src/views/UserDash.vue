@@ -3,7 +3,7 @@
     <md-app-toolbar class="md-primary" >
       <Navbar @toggleNav = "showNavigation = !showNavigation" />
     </md-app-toolbar>
-    <md-app-drawer md-permanent="clipped" :md-active.sync="showNavigation" style="padding: 15px;">
+    <md-app-drawer md-permanent="clipped" :md-active.sync="showNavigation">
       <Drawer />
     </md-app-drawer>
     <md-app-content>

@@ -124,4 +124,14 @@ export default {
 
 <style>
 
+.md-drawer {
+    width: 400px;
+    max-width: calc(100vw - 125px);
+    color: antiquewhite;
+  }
+
+  .md-primary{
+        background-color:  #00b73d !important;
+  }
+
 </style>

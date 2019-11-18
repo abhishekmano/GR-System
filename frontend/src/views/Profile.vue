@@ -8,14 +8,15 @@
     </md-app-drawer>
     <md-app-content>
             <div class="md-layout md-alignment-center-center">
-            <md-card class="md-layout-item md-size-70">
+            <md-card class="md-layout-item md-size-45">
                 <md-card-header>
-                    <div class="md-title">Profile</div>
+                    <div class="md-title" style="font-weight: bold; font-size: 20pt;">Profile</div>
                 </md-card-header>
                 <md-card-content>
                     <div class="md-layout md-gutter md-alignment-center-center">
                         <div class="md-layout-item md-size-70 md-small-size-100">
                             <md-field>
+                                <label for="username">Username</label>
                                 <md-input disabled="true" name="username" id="username" v-model="form.username" />
                             </md-field>
                         </div>
@@ -44,13 +45,13 @@
   <!--  Modal -->
 
                     <div>
-                     <md-card class="md-layout-item md-size-70">
+                     <md-card class="md-layout-item md-size-45">
                          
                         <md-dialog :md-active.sync="showDialog">
-                        <md-dialog-title>Change Password</md-dialog-title>
+                        <md-dialog-title style="text-align:center;">Change Password</md-dialog-title>
                         
-                        <div style="padding:1.5vh">
-                            <md-field v-bind:class="{'md-invalid': error.passErr}" class="md-layout-item">  
+                        <div style="padding:35px;" >
+                            <md-field>  
                                 <label for="oldpassword">Old Password</label>
                                 <md-input type ="password" name="oldpassword" id="oldpassword" v-model="form.oldpassword" /> 
                                 <span class="md-error">{{ error.passMsg }}</span>  
@@ -66,10 +67,40 @@
                                 <md-input type ="password" name="newpassword" id="newpassword" v-model="form.confpassword" />   
                             </md-field>
                          </div>
-                        <md-dialog-actions>
-                            <md-button class="md-primary" @click="showDialog = false">Close</md-button>
-                            <md-button ref="uploadBtn" class="md-primary" @click="changePassword">Confirm</md-button>
+                        <md-dialog-actions style="padding: 5%; margin-bottom: 2%;">
+                            <md-button class="md-primary" @click="showDialog = false"  style="font-size: 11pt;">Close</md-button>
+                            <md-button ref="uploadBtn" class="md-primary" @click="changePassword"  style="font-size: 11pt;">Confirm</md-button>
                         </md-dialog-actions>
+                        </md-dialog>  
+                         
+                     </md-card>
+                    </div>
+
+
+                    <div>
+                     <md-card class="md-layout-item md-size-45">
+                         
+                        <md-dialog :md-active.sync="updProf">
+                        <md-dialog-title style="text-align:center;">Update Profile</md-dialog-title>
+                        
+                        <div style="padding:35px; text-align : center;" >
+                            <span>Details has been updated.</span>
+                         </div>
+                        </md-dialog>  
+                         
+                     </md-card>
+                    </div>
+
+
+                     <div>
+                     <md-card class="md-layout-item md-size-45">
+                         
+                        <md-dialog :md-active.sync="updPass">
+                        <md-dialog-title style="text-align:center;">Update Password</md-dialog-title>
+                        
+                        <div style="padding:35px; text-align : center;" >
+                            <span>Password has been updated.</span>
+                         </div>
                         </md-dialog>  
                          
                      </md-card>
@@ -77,10 +108,10 @@
    <!--  Modal Ends -->
 
              </md-card-content>
-                        <md-card-actions>
-                            <md-button type="submit" class="md-raised md-primary" @click="updateProfile">Update Profile</md-button>
-                            <md-button type="submit" class="md-raised md-primary" @click="showDialog = true">Change Password</md-button>
-                        </md-card-actions> 
+                <md-card-actions>
+                    <md-button type="submit" class="md-raised md-primary update" @click="updateProfile" >Update Profile</md-button>
+                    <md-button type="submit" class="md-raised md-primary change" @click="showDialog = true" style="font-size: 9pt;" >Change Password</md-button>
+                </md-card-actions> 
 
             </md-card>
 
@@ -114,11 +145,82 @@
     height: inherit;
   }
 
-
+.md-card{
+    border-radius: 15px;
+}
  .md-primary{
    background-color:  #00b73d !important;
 
+.md-button.md-theme-default.md-primary{
+    color: white !important;
+}
  }
+ 
+ .md-card-actions.md-alignment-right {
+    justify-content: space-around;
+    padding: 5%;
+}
+ 
+
+ .md-button{
+    justify-content: space-around;
+    text-transform: none;
+    height: 40px !important;
+    width: 153px !important;
+    border-radius: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 4px;
+
+ z-index: 1;
+  position: relative;
+  font-weight: bold;
+  font-family: inherit;
+  color: white !important;
+  //padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color: hsl(125, 58%, 24%) !important;
+  overflow: hidden;
+  transition: color 0.4s ease-in-out;
+}
+
+.md-button::before {
+   content: '';
+  z-index: -1;
+  position: absolute;
+  top: 100%;
+  right: 100%;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #3cefff !important;
+  transform-origin: center;
+  transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0);
+  transition: transform 0.45s ease-in-out;
+}
+
+.md-button:hover {
+  cursor: pointer;
+  color:white !important;
+}
+
+.md-button:hover::before {
+   transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
+}
+
+.update{
+    width: 130px !important;
+    font-size: 10pt !important;
+}
+
+.change{
+    font-size: 10pt !important;
+}
+
+.md-dialog{
+    border-radius: 15px;
+  }
   
 </style>
 
@@ -151,7 +253,10 @@ export default {
         },
       
       showDialog:false,
-      showNavigation: false
+      showNavigation: false,
+      updProf: false,
+      incPass: false,
+      updPass : false
     }
   },
   methods:{
@@ -173,6 +278,7 @@ export default {
             }
             axios.post(process.env.VUE_APP_ROOT_API+'profile/'+data.usertype+'/updateProfile',data,config)
             .then((res)=>{
+                this.updProf = true
                 console.log("saved ");
                 console.log(res);  
                 alert("Profile updated");
@@ -191,19 +297,21 @@ export default {
             old: this.form.oldpassword,
             password: this.form.newpassword
         }
+        console.log(data);
         var config={
             headers: { Authorization: "Bearer " + this.$store.getters.bearerToken }
         }
         axios.post(process.env.VUE_APP_ROOT_API+'profile/'+this.$store.getters.usertype+'/updatepwd',data,config)
             .then((res)=>{
                 if (res.data.success) {
-                    alert("Password Updated ");    // Daaa ivide oru variable true vech puthiya box kanik
-                    self.$router.push('/')
+                    this.updPass=true
+                    //alert("Password Updated ");    // Daaa ivide oru variable true vech puthiya box kanik
+                     self.$router.push('/')
                 }
                 else{
-                    this.error.passMsg = "Incorrect Password"
-                    this.error.passErr = true
-                    //alert("incorrect password");   // ividem
+                   // this.error.passMsg = "Incorrect Password"
+                    //this.error.passErr = true
+                    this.incPass = true
                 }
                 console.log(res.data.success);
                 

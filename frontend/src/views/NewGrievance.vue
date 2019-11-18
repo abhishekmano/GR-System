@@ -8,9 +8,9 @@
         </md-app-drawer>
         <md-app-content>
             <div class="md-layout md-alignment-center-center">
-            <md-card class="md-layout-item md-size-70">
+            <md-card class="md-layout-item md-size-55" style="border-radius : 15px; height: 450px;">
                 <md-card-header>
-                    <div class="md-title">Create new Grievance</div>
+                    <div class="md-title" style="font-size: 20pt; padding: 15px;"><strong>Create new Grievance </strong></div>
                 </md-card-header>
                 <md-card-content>
                     <div class="md-layout md-gutter md-alignment-center-center">
@@ -50,8 +50,8 @@
                     </div>
    <!-- FIle upload Modal Ends -->
                 </md-card-content>
-                        <md-card-actions>
-                            <md-button type="submit" class="md-raised md-primary" @click="save">Save</md-button>
+                        <md-card-actions style="justify-content: space-around;">
+                            <md-button type="submit" class="md-raised md-primary save" @click="save">Save</md-button> &nbsp; &nbsp; 
                             <md-button type="submit" class="md-raised md-accent" @click="submit">Submit</md-button>
                             <md-button v-if="showButton" class="md-primary md-raised" @click="showDialog = true">Upload File</md-button>
                         </md-card-actions>
@@ -192,9 +192,13 @@ export default {
     height: inherit;
   }
 
+.md-primary{
+       background-color:  #00b73d !important;
+
+}
    // Demo purposes only
   .md-drawer {
-    width: 230px;
+    width: 400px;
     max-width: calc(100vw - 125px);
     color: antiquewhite;
   }
@@ -205,6 +209,25 @@ export default {
 
   .md-layout{
     padding-top: 20px;
+  }
+
+  .md-card-actions{
+      padding: 10%;
+  }
+
+  .md-button{
+      font-size: 12pt;
+      font-weight: bold;
+      text-transform: none;
+        border-radius: 15px;
+    width: 150px !important;
+    text-align: inherit;
+
+  }
+
+  .save{
+    background-color: hsl(125, 58%, 24%) !important; 
+
   }
 </style>
 

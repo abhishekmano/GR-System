@@ -5,26 +5,26 @@
           <img :src="images.cet">
         </md-avatar>
       </md-toolbar>
-      <md-list>
-          <a href="/#/dashboard" >
+      <md-list style="padding-top: 25px;">
+          <router-link to = "/dashboard" >
             <md-list-item>
               <md-icon>home</md-icon>
               <span class="md-list-item-text">Dashboard</span>
             </md-list-item>          
-          </a>
-          <a href="/#/profile"  >
+          </router-link>
+          <router-link to = "/profile"  >
           <md-list-item>
             <md-icon>account_circle</md-icon>
             <span class="md-list-item-text">Profile</span>
           </md-list-item>
-          </a>
+          </router-link>
 
-          <a href="/#/contact" >
+          <router-link to = "/contact" >
             <md-list-item>
             <md-icon>help</md-icon>
             <span class="md-list-item-text">Contact Us</span>
           </md-list-item>
-          </a>
+          </router-link>
           
         </md-list>
     </div>
@@ -58,6 +58,21 @@ export default {
     margin-top: 24px;
     border-radius: 10px !important;
 }
+
+.md-list-item-content{
+  padding: 20px 80px !important;
+}
+
+.md-list-item-text{
+  font-size: 15pt;
+}
+
+.md-list.md-theme-default .router-link-exact-active .md-list-item-content .md-list-item-text{
+  font-size: 20pt;
+  color :black ;
+
+}
+
 
 
 </style>

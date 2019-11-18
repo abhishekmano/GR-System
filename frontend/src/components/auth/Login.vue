@@ -3,7 +3,7 @@
     <form novalidate class="md-layout md-alignment-space-around-center" style="padding-top: 5vh">
       <md-card class="md-layout-item login-form">
         <md-card-header>
-          <div class="md-title" style="font-weight:bolder;"><strong>Log In</strong></div>
+          <div class="md-title" style="font-weight:bolder; font-size: 20pt;"><strong>Log In</strong></div>
         </md-card-header>
 
         <md-card-content class="md-layout md-alignment-space-around-center " style="padding: 30px;">
@@ -25,7 +25,7 @@
                      <md-card class="md-layout-item md-size-70 ">
                          
                         <md-dialog :md-active.sync="showDialog">
-                        <md-dialog-title>Forgot Password</md-dialog-title>
+                        <md-dialog-title style="font-size: 16pt; text-align: center;">Forgot Password</md-dialog-title>
                         
                         <div class="popup">
                             <md-field>  
@@ -34,8 +34,8 @@
                             </md-field>
                          </div>
                         <md-dialog-actions>
-                            <md-button class="md-primary" @click="forgotp"  style="color: #00b73d !important;">Submit</md-button>
-                            <md-button class="md-primary" @click="showDialog = false" style="color: #00b73d !important;">Cancel</md-button>
+                            <md-button class="md-primary login-button" @click="forgotp"  style="color: #ffffff !important;">Submit</md-button>
+                            <md-button class="md-primary login-button" @click="showDialog = false" style="color: #ffffff !important;">Cancel</md-button>
 
                         </md-dialog-actions>
                         </md-dialog>  
@@ -174,7 +174,7 @@
     border-radius: 10px;
     padding-left: 2%;
     padding-right: 2%;
-    padding-top: 4px;
+    padding-top: 0px;
 
  z-index: 1;
   position: relative;
@@ -217,9 +217,15 @@
   justify-content: center;
 }
 
-  
-  .popup{
-    padding: 20px;
+.popup{
+  padding: 20px;
+}
+  .md-dialog{
+    border-radius: 15px;
+  }
+
+  .md-dialog-actions{
+    justify-content: space-around;
   }
 /*  */
 </style>

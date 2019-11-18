@@ -20,8 +20,8 @@
                                 <span class="md-error" >{{ error.tokenErrMsg }}</span>
                             </md-field>
                         </md-card-content>
-                        <md-card-actions md-alignment="space-between">
-                            <md-button  @click="submit" class="md-dense md-raised md-primary">Submit</md-button>
+                        <md-card-actions md-alignment="space-between" style="justify-content: center;">
+                            <md-button  @click="submit" class="md-dense md-raised md-primary submit">Submit</md-button>
                         </md-card-actions>
                     </md-card>
                 </form>
@@ -34,7 +34,7 @@
                         </md-icon>
                     </a>
                 </div>
-                <div class="md-layout md-gutter md-alignment-center-center">
+                <div class="md-layout md-gutter md-alignment-center-center" style="padding: 20px;">
                     <!-- <md-card>
                         <md-card-header>
                             <span class="md-headline">{{ data.title }}</span>
@@ -43,10 +43,12 @@
                             <span class="md-body-1">Status: {{ data.status }}</span>
                         </md-card-content>
                     </md-card> -->
-                    <span class="md-title md-layout-item md-size-90 md-small-size-100">{{ data.title }}</span>
+                    <!-- <span class="md-title md-layout-item md-size-90 md-small-size-100" style="padding: 20px; font-weight: bold; font size: 20pt; text-align : left;">{{ data.title }}</span> -->
                     <br>
                     <md-card class="md-layout-item md-size-90 md-small-size-100">
                         <md-card-content>
+                    <span class="md-title md-layout-item md-size-90 md-small-size-100" style="padding: 20px; font-weight: bold; font size: 20pt; text-align : left;">{{ data.title }}</span>
+
                                 <md-list class="">
                                     <md-list-item class="">Token Number : {{ data.token }}</md-list-item>
                                     <md-list-item class="">Created on : {{ data.date_created }}</md-list-item>
@@ -132,7 +134,7 @@ export default {
     height: inherit;
 }
 .md-drawer {
-    width: 230px;
+    width: 400px;
     max-width: calc(100vw - 125px);
     color: antiquewhite;
   }
@@ -145,5 +147,55 @@ export default {
       font-size: 25px;
   }
 
+  .md-card{
+      border-radius: 15px;
+      padding: 25px;
+  }
+
+.submit{
+    text-transform: none;
+    height: 40px !important;
+    width: 120px !important;
+    border-radius: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 0px;
+
+ z-index: 1;
+  position: relative;
+  font-weight: bold;
+  font-family: inherit;
+  color: white !important;
+  //padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color: hsl(125, 58%, 24%) !important;
+  overflow: hidden;
+  transition: color 0.4s ease-in-out;
+}
+
+.submit::before {
+   content: '';
+  z-index: -1;
+  position: absolute;
+  top: 100%;
+  right: 100%;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #3cefff !important;
+  transform-origin: center;
+  transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0);
+  transition: transform 0.45s ease-in-out;
+}
+
+.submit:hover {
+  cursor: pointer;
+  color:white !important;
+}
+
+.submit:hover::before {
+   transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
+}
 
 </style>
