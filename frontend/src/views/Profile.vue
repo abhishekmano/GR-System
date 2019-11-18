@@ -183,7 +183,7 @@
     border-radius: 10px;
     padding-left: 2%;
     padding-right: 2%;
-    padding-top: 4px;
+    // padding-top: 1px;
 
  z-index: 1;
   position: relative;
@@ -325,6 +325,10 @@ export default {
                 console.log(res.data.success);
                 console.log(this.updPass);
                 console.log(this.incPass);
+
+                this.form.confpassword="";
+                this.form.newpassword="";
+                this.form.oldpassword="";
                 
             })
             .catch((err)=>{
@@ -333,8 +337,10 @@ export default {
       },
 
       checkPassword:function(){
+             
           if(this.form.confpassword == this.form.newpassword){
               this.changePassword();
+              
           }
 
           else{
