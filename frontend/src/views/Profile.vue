@@ -345,7 +345,6 @@ export default {
       checkPassword:function(){
           if(this.form.confpassword == this.form.newpassword){
               this.changePassword();
-              //this.makeallnull();
           }
 
           else{

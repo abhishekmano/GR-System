@@ -137,7 +137,16 @@
         this.showDialog = false,
         this.submitFlag = true,
         console.log("forgotpcalled");
+      },  
+      makenull:function(){
+        console.log("making empty");
+        this.form.userName = null;
+        this.form.password = null;
       }
+    },
+    mounted(){
+      console.log("Mounted");
+      this.makenull();
     }
   }
 </script>
