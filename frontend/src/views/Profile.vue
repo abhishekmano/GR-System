@@ -50,11 +50,11 @@
                         <md-dialog :md-active.sync="showDialog">
                         <md-dialog-title style="text-align:center;">Change Password</md-dialog-title>
                         
-                        <div style="padding:35px;" >
-                            <md-field>  
+                        <div style="padding:35px;" >  
+                            <md-field v-bind:class="{'md-invalid': error.oldpassErr}" class="md-layout-item">
                                 <label for="oldpassword">Old Password</label>
                                 <md-input type ="password" name="oldpassword" id="oldpassword" v-model="form.oldpassword" /> 
-                                <span class="md-error">{{ error.passMsg }}</span>  
+                                <span class="md-error">{{ error.oldpassMsg }}</span>  
                             </md-field>
                         
                             <md-field>  
@@ -62,9 +62,10 @@
                                 <md-input type ="password" name="newpassword" id="newpassword" v-model="form.newpassword" />   
                             </md-field>
 
-                            <md-field>  
+                             <md-field v-bind:class="{'md-invalid': error.passErr}" class="md-layout-item">
                                 <label for="newpassword">Confirm New Password</label>
-                                <md-input type ="password" name="newpassword" id="newpassword" v-model="form.confpassword" />   
+                                <md-input type ="password" name="newpassword" id="newpassword" v-model="form.confpassword" /> 
+                                <span class="md-error">{{ error.passMsg }}</span>  
                             </md-field>
                          </div>
                         <md-dialog-actions style="padding: 5%; margin-bottom: 2%;">
@@ -263,7 +264,9 @@ export default {
       },
       error: {
           passErr: false,
-          passMsg: null
+          passMsg: null,
+          oldpassErr : false,
+          oldpassMsg : null
         },
       
       showDialog:false,
@@ -318,14 +321,15 @@ export default {
         axios.post(process.env.VUE_APP_ROOT_API+'profile/'+this.$store.getters.usertype+'/updatepwd',data,config)
             .then((res)=>{
                 if (res.data.success) {
-                    this.updPass=true
-                    //alert("Password Updated ");    // Daaa ivide oru variable true vech puthiya box kanik
+                    this.updPass = true
                      //self.$router.push('/')
                 }
-                else{
-                   // this.error.passMsg = "Incorrect Password"
-                    //this.error.passErr = true
-                    this.incPass = true
+                if(res.data.success == false){
+                    this.showDialog = true;
+                    console.log("old Password is not correct");
+                    this.error.oldpassMsg = "Incorrect Password";
+                    this.error.oldpassErr = true;
+                    //this.incPass = true
                 }
                 console.log(res.data.success);
                 console.log(this.updPass);
@@ -343,8 +347,11 @@ export default {
           }
 
           else{
-              this.incPass=true;
-              this.showDialog=false;
+              console.log("password doesnt match");
+              this.error.passErr = true;
+              this.error.passMsg = "Passwords Doesnt match";
+              //this.incPass=true;
+              //this.showDialog=false;
           }
       }
   },
