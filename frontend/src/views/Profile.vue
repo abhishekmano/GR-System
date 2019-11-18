@@ -68,7 +68,7 @@
                          </div>
                         <md-dialog-actions style="padding: 5%; margin-bottom: 2%;">
                             <md-button class="md-primary" @click="showDialog = false"  style="font-size: 11pt;">Close</md-button>
-                            <md-button ref="uploadBtn" class="md-primary" @click="changePassword"  style="font-size: 11pt;">Confirm</md-button>
+                            <md-button ref="uploadBtn" class="md-primary" @click="checkPassword"  style="font-size: 11pt;">Confirm</md-button>
                         </md-dialog-actions>
                         </md-dialog>  
                          
@@ -330,6 +330,17 @@ export default {
             .catch((err)=>{
                 console.log(err);
             })  
+      },
+
+      checkPassword:function(){
+          if(this.form.confpassword == this.form.newpassword){
+              this.changePassword();
+          }
+
+          else{
+              this.incPass=true;
+              this.showDialog=false;
+          }
       }
   },
   mounted(){
