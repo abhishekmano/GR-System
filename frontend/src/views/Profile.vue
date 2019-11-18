@@ -69,7 +69,7 @@
                          </div>
                         <md-dialog-actions style="padding: 5%; margin-bottom: 2%;">
                             <md-button class="md-primary" @click="showDialog = false"  style="font-size: 11pt;">Close</md-button>
-                            <md-button ref="uploadBtn" class="md-primary" @click="changePassword"  style="font-size: 11pt;">Confirm</md-button>
+                            <md-button ref="uploadBtn" class="md-primary" @click="checkPassword"  style="font-size: 11pt;">Confirm</md-button>
                         </md-dialog-actions>
                         </md-dialog>  
                          
@@ -100,6 +100,20 @@
                         
                         <div style="padding:35px; text-align : center;" >
                             <span>Password has been updated.</span>
+                         </div>
+                        </md-dialog>  
+                         
+                     </md-card>
+                    </div>
+
+                    <div>
+                     <md-card class="md-layout-item md-size-45">
+                         
+                        <md-dialog :md-active.sync="incPass">
+                        <md-dialog-title style="text-align:center;">Password Update Failed</md-dialog-title>
+                        
+                        <div style="padding:35px; text-align : center;" >
+                            <span>Password not updated.</span>
                          </div>
                         </md-dialog>  
                          
@@ -306,7 +320,7 @@ export default {
                 if (res.data.success) {
                     this.updPass=true
                     //alert("Password Updated ");    // Daaa ivide oru variable true vech puthiya box kanik
-                     self.$router.push('/')
+                     //self.$router.push('/')
                 }
                 else{
                    // this.error.passMsg = "Incorrect Password"
@@ -314,11 +328,24 @@ export default {
                     this.incPass = true
                 }
                 console.log(res.data.success);
+                console.log(this.updPass);
+                console.log(this.incPass);
                 
             })
             .catch((err)=>{
                 console.log(err);
             })  
+      },
+
+      checkPassword:function(){
+          if(this.form.confpassword == this.form.newpassword){
+              this.changePassword();
+          }
+
+          else{
+              this.incPass=true;
+              this.showDialog=false;
+          }
       }
   },
   mounted(){
