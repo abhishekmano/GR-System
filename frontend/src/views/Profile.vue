@@ -334,10 +334,6 @@ export default {
                 console.log(res.data.success);
                 console.log(this.updPass);
                 console.log(this.incPass);
-
-                this.form.confpassword="";
-                this.form.newpassword="";
-                this.form.oldpassword="";
                 
             })
             .catch((err)=>{
