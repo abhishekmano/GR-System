@@ -87,7 +87,9 @@
           userErr: false,
           userMsg: null,
           passErr: false,
-          passMsg: null
+          passMsg: null,
+          mailerr: false,
+          mailMsg: null
         },
         showDialog:false,
         submitFlag: false
@@ -134,9 +136,25 @@
           this.$emit('toggle')
       },
       forgotp:function(){
-        this.showDialog = false,
-        this.submitFlag = true,
+        //this.showDialog = false,
+        //this.submitFlag = true,
         console.log("forgotpcalled");
+        var data ={
+          email : this.form.emailid
+        }
+        console.log(data);
+        axios.post(process.env.VUE_APP_ROOT_API+'auth/forgotp',data)
+        .then((res)=>{
+              if(res.data.success){
+                console.log("Mail id found");
+              }
+              else {
+                console.log("mail id absent");
+              }
+        })
+        .catch((err)=>{
+              console.log(err);
+        })
       },  
       makenull:function(){
         console.log("making empty");
