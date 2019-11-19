@@ -475,4 +475,37 @@ router.post('/celllogin', function (req,res,next){
         })
     })
 }) */
+
+router.post('/forgotp',(req,res) => {
+    console.log("POSTTT SUCCESSFULL");
+    var info = {
+        email : req.body.email
+    }
+    peopleMethods.getPeopleByEmail({
+       email : info.email 
+    }).then((people) => {
+        console.log(people);
+        if(!people){
+            res.json({
+                success:false,
+                err:'No user'
+            })
+        }
+        else{
+            res.json({
+                success:true
+            })
+            console.log("Bakki cheyyam");
+        }
+        
+    })
+    .catch((err) => {
+        res.json({
+            success:false,
+            err:'Incorrect Mail ID'
+        })
+    })
+})
+
+
 module.exports = router
