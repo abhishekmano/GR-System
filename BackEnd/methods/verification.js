@@ -35,6 +35,7 @@ verificationMethods.returnToken = (info) => {
 
 verificationMethods.updateToken = (info) => {
     return new Promise((resolve, reject) => {
+        console.log("Reached update tocken with user_id "+info.user_id);
         info.verification_token = uid.process()
         model.update(info,{
             where:{
@@ -43,6 +44,7 @@ verificationMethods.updateToken = (info) => {
         })
         .then((res) => {
             resolve(res)
+            console.log("New verification tocken is "+res);
         })
         .catch((err) => {
             reject(err)

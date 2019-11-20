@@ -138,7 +138,40 @@ userMethods.findUserByUserID = (info) => {
     })
 }
 
+userMethods.findUserByPeopleID = (info) => {
+    console.log("hellooooo   "+info.people_id)  //checking
+    return new Promise((resolve, reject) => {
+        model.findOne({
+            where: {
+                people_id : info.people_id
+            }
+        })
+        .then((user) => {
+            resolve(user)
+        })
+        .catch((err) => {
+            reject(err)
+        })
+    })
+}
+
 userMethods.updateUser = (info) => {
+    return new Promise((resolve,reject) => {
+        model.update(info,{
+            where:{
+                user_id: info.user_id
+            }
+        })
+        .then((res) => {
+            resolve(res)
+        })
+        .catch((err) => {
+            reject(err)
+        })
+    })
+}
+
+userMethods.updatePassword = (info) => {
     return new Promise((resolve,reject) => {
         model.update(info,{
             where:{

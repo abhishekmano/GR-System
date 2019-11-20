@@ -329,6 +329,7 @@ export default {
                     this.showDialog = true;
                     console.log("old Password is not correct");
                     this.error.oldpassMsg = "Incorrect Password";
+                    this.error.passErr = false;
                     this.error.oldpassErr = true;
                     //this.incPass = true
                 }

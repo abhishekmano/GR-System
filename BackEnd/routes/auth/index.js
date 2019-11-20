@@ -481,19 +481,74 @@ router.post('/forgotp',(req,res) => {
     var info = {
         email : req.body.email
     }
-    peopleMethods.getPeopleByEmail({
+    peopleMethods.getPeopleByEmail({ //fetching row from people table
        email : info.email 
     }).then((people) => {
-        console.log(people);
+        //console.log(people);
         if(!people){
             res.json({
                 success:false,
-                err:'No user'
+                error:'No user'
             })
         }
         else{
-            res.json({
-                success:true
+            userMethods.findUserByPeopleID({ //fetching corresponding user details
+                people_id : people.people_id
+            }).then((user) => {
+                    console.log("Fetched userdetails ");
+                    console.log(user.user_name+" is the required user name");
+                    verificationMethods.updateToken({   //update the current token value
+                        user_id :user.user_id
+                    }).then((result) =>{
+                        verificationMethods.returnToken({  //fetch the new tocken value
+                            user_id : user.user_id
+                        }).then((token)=>{
+                            bcrypt.hash(token.verification_token,10) //hash the new tocken
+                            .then((hashPass) => {
+                                userMethods.updatePassword({   //call update password with new hashed password
+                                    user_id : user.user_id,
+                                    password : hashPass
+                                }).then((new_row)=>{
+                                    mailer.Send({
+                                    email:people.email,
+                                    username:people.name,
+                                    subject: 'Password for Grievance Cell CET',
+                                    content: 'Your temporary password for Grievance Cell online portal is <b>'+token.verification_token+'</b><br /> For any assistance contact us at grievancecell@cet.ac.in',
+                                })
+                                res.json({
+                                    "success":true,
+                                    "username":user.user_name
+                                    })
+                                }).catch((err)=>{
+                                res.json({
+                                    success:false,
+                                    error:err.message
+                                    })
+                                })
+                            }).catch((err) => {
+                                res.json({
+                                    "success":false,
+                                    "err":err.message
+                                })
+                            })                           
+                        }).catch((err)=>{
+                            res.json({
+                                success:false,
+                                error:err.message
+                            })
+                        })                        
+                    }).catch((err)=>{
+                        res.json({
+                            success:false,
+                            error:err.message
+                        })
+                    })
+            })
+            .catch((err) =>{
+                res.json({
+                    success:false,
+                    error:err.message
+                })
             })
             console.log("Bakki cheyyam");
         }

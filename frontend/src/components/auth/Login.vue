@@ -28,9 +28,10 @@
                         <md-dialog-title style="font-size: 16pt; text-align: center;">Forgot Password</md-dialog-title>
                         
                         <div class="popup">
-                            <md-field>  
+                            <md-field v-bind:class="{'md-invalid': error.mailerr}" class="md-layout-item">  
                                 <label for="oldpassword">Enter registered email id</label>
-                                <md-input name="oldpassword" id="oldpassword" v-model="form.emailid" />   
+                                <md-input name="oldpassword" id="oldpassword" v-model="form.emailid" /> 
+                                <span class="md-error">{{ error.mailMsg }}</span>  
                             </md-field>
                          </div>
                         <md-dialog-actions>
@@ -146,9 +147,15 @@
         axios.post(process.env.VUE_APP_ROOT_API+'auth/forgotp',data)
         .then((res)=>{
               if(res.data.success){
+                this.showDialog = false,
+                this.submitFlag = true,
+                this.error.mailerr = false;
                 console.log("Mail id found");
               }
               else {
+                this.error.mailMsg = 'Enter a valid mail id';
+                this.error.mailerr = true ;
+                console.log(res.data.error)
                 console.log("mail id absent");
               }
         })
