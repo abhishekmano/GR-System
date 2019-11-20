@@ -1,6 +1,6 @@
 <template>
       <div class="md-toolbar-row">
-        <div class="md-toolbar-section-start" @click="toggleNav">
+        <div class="md-toolbar-section-start menuicon" @click="toggleNav">
           <md-button class="md-icon-button">
             <md-icon>menu</md-icon>
           </md-button>
@@ -44,6 +44,14 @@
     font-weight: bold;
     text-transform: none;
   }
+
+   @media only screen and (min-width: 600px) {
+     .menuicon{
+        display: none;
+     }
+   }
+
+
 </style>
 
 <script>

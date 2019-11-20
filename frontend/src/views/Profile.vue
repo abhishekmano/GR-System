@@ -17,7 +17,7 @@
                         <div class="md-layout-item md-size-70 md-small-size-100">
                             <md-field>
                                 <label for="username">Username</label>
-                                <md-input disabled="true" name="username" id="username" v-model="form.username" />
+                                <md-input class="username" disabled="true" name="username" id="username" v-model="form.username" />
                             </md-field>
                         </div>
                         <div class="md-layout-item md-size-70 md-small-size-100">
@@ -212,7 +212,7 @@
   background-color: #3cefff !important;
   transform-origin: center;
   transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0);
-  transition: transform 0.45s ease-in-out;
+  transition: transform 0.6s ease-in-out;
 }
 
 .md-button:hover {
@@ -221,7 +221,7 @@
 }
 
 .md-button:hover::before {
-   transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
+   transform: translate3d(50%, -50%, 0) scale3d(30, 30, 30);
 }
 
 .update{
@@ -237,6 +237,10 @@
     border-radius: 15px;
   }
   
+
+#username::after, #username::before{
+    display: none;
+}
 </style>
 
 <script>
@@ -344,8 +348,10 @@ export default {
       },
 
       checkPassword:function(){
+             
           if(this.form.confpassword == this.form.newpassword){
               this.changePassword();
+              
           }
 
           else{

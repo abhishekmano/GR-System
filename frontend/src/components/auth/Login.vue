@@ -244,6 +244,7 @@
 }
 
 .login-button:hover::before {
+    content: '';
    transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
 }
 
