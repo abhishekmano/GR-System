@@ -195,7 +195,7 @@ export default {
 }
 
 .submit:hover::before {
-   transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
+   transform: translate3d(50%, -50%, 0) scale3d(30, 30, 30);
 }
 
 </style>
