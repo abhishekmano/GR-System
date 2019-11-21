@@ -12,6 +12,14 @@
       <login v-if="!register" @toggle="toggleReg" />
       <register v-if="register" @toggle="toggleReg"/>
     </div>
+
+     <div class="footer">
+        <md-icon style="color: white;"> call </md-icon> &nbsp; &nbsp;
+        <span> +91-1234567</span>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+        <md-icon style="color: white;"> email </md-icon> &nbsp; &nbsp;
+        <span>  grievancecell@cet.ac.in </span>
+     </div>
+
   </div>
 </template>
 
@@ -70,6 +78,26 @@ h1{
   }
 }
 
+/* .footer{
+  background : rgb(82, 82, 82);
+  font-family: 'Roboto' , sans-serif;
+  box-shadow: 0px -5px;
+  bottom: 0;
+  position: absolute;
+  justify-content: last baseline;
+} */
 
+.footer{
+   font-family: 'Roboto' , sans-serif;
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(41, 41, 41);
+   color: white;
+   text-align: center;
+   padding: 20px;
+   box-shadow: 0px -25x #0000;
+}
 </style>
 
