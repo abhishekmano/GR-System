@@ -9,7 +9,7 @@
                 </md-card-header>
 
                 <md-card-content>
-                  <md-icon class="md-size-2x">info</md-icon>
+                  <md-icon class="md-size-2x" style="color: rgb(83, 172, 255);">info</md-icon>
                 </md-card-content>
               </md-ripple>
             </md-card>
@@ -22,7 +22,7 @@
                 </md-card-header>
 
                 <md-card-content>
-                  <md-icon class="md-size-2x">error_outline</md-icon>
+                  <md-icon class="md-size-2x" style="color: orange;">history</md-icon>
                 </md-card-content>
               </md-ripple>
             </md-card>
@@ -37,7 +37,7 @@
               </md-card-header>
 
               <md-card-content>
-                <md-icon class="md-size-2x">history</md-icon>
+                <md-icon class="md-size-2x" style="color: green;">check_circle_outline</md-icon>
               </md-card-content>
             </md-ripple>
           </md-card>
@@ -50,13 +50,12 @@
           </md-card-header>
 
           <md-card-content>
-          <md-icon class="md-size-2x">check_circle_outline</md-icon>
+          <md-icon class="md-size-2x" style="color: rgb(255, 100, 100);">error_outline</md-icon>
           </md-card-content>
         </md-ripple>
             </md-card>
           </a>
-        </div>
-      
+        </div>      
       </div>
 </template>
 

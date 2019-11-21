@@ -14,9 +14,9 @@
     </div>
 
      <div class="footer">
-        <md-icon style="color: white;"> call </md-icon> &nbsp;
+        <md-icon style="color: rgb(153, 153, 153);"> call </md-icon> &nbsp;
         <span> +91-1234567</span>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-        <md-icon style="color: white;"> email </md-icon> &nbsp;
+        <md-icon style="color: rgb(153, 153, 153);"> email </md-icon> &nbsp;
         <span>  grievancecell@cet.ac.in </span>
      </div>
 
@@ -94,10 +94,10 @@ h1{
    bottom: 0;
    width: 100%;
    background-color: rgb(41, 41, 41);
-   color: white;
+   color: rgb(153, 153, 153);
    text-align: center;
    padding: 20px;
-   box-shadow: 0px -25x #0000;
+   box-shadow: 0 8px 6px 6px black;
 }
 </style>
 
