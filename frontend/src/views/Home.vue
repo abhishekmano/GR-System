@@ -14,9 +14,9 @@
     </div>
 
      <div class="footer">
-        <md-icon style="color: white;"> call </md-icon> &nbsp; &nbsp;
+        <md-icon style="color: white;"> call </md-icon> &nbsp;
         <span> +91-1234567</span>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-        <md-icon style="color: white;"> email </md-icon> &nbsp; &nbsp;
+        <md-icon style="color: white;"> email </md-icon> &nbsp;
         <span>  grievancecell@cet.ac.in </span>
      </div>
 
