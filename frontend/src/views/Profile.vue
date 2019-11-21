@@ -164,7 +164,7 @@
     border-radius: 15px;
 }
  .md-primary{
-   background-color:  #00b73d !important;
+   background-color:  hsl(0, 0%, 11%) !important;
 
 .md-button.md-theme-default.md-primary{
     color: white !important;
@@ -195,7 +195,7 @@
   //padding: 0.5em 1em;
   outline: none;
   border: none;
-  background-color: hsl(125, 58%, 24%) !important;
+  background-color: hsl(0, 0%, 11%) !important;
   overflow: hidden;
   transition: color 0.4s ease-in-out;
 }
@@ -302,7 +302,6 @@ export default {
                 this.updProf = true
                 console.log("saved ");
                 console.log(res);  
-                alert("Profile updated");
             })
             .catch((err)=>{
                 console.log("Failed");

@@ -130,6 +130,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.md-primary{
+    background:  hsl(0, 0%, 11%) !important;
+}
+
 .md-app{
     height: inherit;
 }
@@ -169,7 +173,7 @@ export default {
   //padding: 0.5em 1em;
   outline: none;
   border: none;
-  background-color: hsl(125, 58%, 24%) !important;
+  background-color:hsl(0, 0%, 11%)!important;
   overflow: hidden;
   transition: color 0.4s ease-in-out;
 }

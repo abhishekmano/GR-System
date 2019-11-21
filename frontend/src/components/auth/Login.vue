@@ -63,8 +63,8 @@
 
         </md-card-actions>
         <md-card-actions md-alignment="space-between" style="text-align: center; padding: 25px; margin-top: 50px;">
-            <a style="cursor: pointer; color: #00b73d !important;" @click="toggle">Not registered? Click here </a>
-            <a style="cursor: pointer; color: #00b73d !important;" @click="showDialog = true">Forgot Password </a> 
+            <a style="cursor: pointer; color: black !important;" @click="toggle">Not registered? Click here </a>
+            <a style="cursor: pointer; color: black !important;" @click="showDialog = true">Forgot Password </a> 
             <!--<md-button  @click="submit" class="md-dense md-raised md-primary login-button">Log In</md-button>-->
         </md-card-actions>
       </md-card>
@@ -218,7 +218,7 @@
   //padding: 0.5em 1em;
   outline: none;
   border: none;
-  background-color: hsl(125, 58%, 24%) !important;
+  background-color: hsl(0, 0%, 11%) !important;
   overflow: hidden;
   transition: color 0.4s ease-in-out;
 }
@@ -235,7 +235,7 @@
   background-color: #3cefff !important;
   transform-origin: center;
   transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0);
-  transition: transform 0.45s ease-in-out;
+  transition: transform 0.6s ease-in-out;
 }
 
 .login-button:hover {
@@ -245,7 +245,7 @@
 
 .login-button:hover::before {
     content: '';
-   transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
+   transform: translate3d(50%, -50%, 0) scale3d(30, 30, 30);
 }
 
 .md-card-actions.md-alignment-right{

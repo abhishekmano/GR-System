@@ -55,12 +55,12 @@ export default {
     min-width: 64px;
     min-height: 64px;
     font-size: 32px;
-    margin-top: 24px;
+    margin-top: 45px;
     border-radius: 10px !important;
 }
 
 .md-list-item-content{
-  padding: 20px 80px !important;
+  padding: 28px 80px !important;
 }
 
 .md-list-item-text{

@@ -57,7 +57,7 @@
 
        
         <md-card-actions md-alignment="space-between">
-          <a @click="toggle" style="cursor: pointer; color: #00b73d !important;">Registered? Sign in</a>
+          <a @click="toggle" style="cursor: pointer; color: black !important;">Registered? Sign in</a>
           <md-button @click="submit" class="md-dense md-raised md-primary register-button">Register</md-button>
         </md-card-actions>
         
@@ -180,7 +180,7 @@
   //padding: 0.5em 1em;
   outline: none;
   border: none;
-  background-color: hsl(125, 58%, 24%) !important;
+  background-color: hsl(0, 0%, 11%) !important;
   overflow: hidden;
   transition: color 0.4s ease-in-out;
 }

@@ -71,7 +71,7 @@ export default {
 }
 
 .md-primary{
-    background-color: #00b73d !important;
+    background-color: hsl(0, 0%, 11%) !important;
 }
 
 .loader {
@@ -82,8 +82,8 @@ export default {
 .middle,
 .inner {
   border: 3px solid transparent;
-  border-top-color: #00b73d;
-  border-right-color: #00b73d;
+  border-top-color:hsl(0, 0%, 11%);
+  border-right-color: hsl(0, 0%, 11%);
   border-radius: 50%;
   position: absolute;
   top: 50%;

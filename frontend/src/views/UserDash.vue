@@ -45,7 +45,7 @@
 
 
     .md-primary{
-      background-color:  #00b73d !important;
+      background-color: hsl(0, 0%, 11%) !important;
     }
   }
   

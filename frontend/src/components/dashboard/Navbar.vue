@@ -6,6 +6,11 @@
           </md-button>
         </div>
 
+        <div class="head">
+          <span class="header">Grievance Cell</span> <br>
+          <span style="font-size: 11pt; opacity: 50%;">College of Engineering ,Trivandrum</span>
+        </div>
+
         <div class="md-toolbar-section-end">
           <md-button v-if="!$store.getters.isLoggedIn" @click="route('login')">
             Login
@@ -25,8 +30,19 @@
 
 <style lang="scss" scoped>
 
+.head{
+  margin-left: 3.5%;
+}
+
+.header{
+  font-family: 'Roboto', sans-serif;
+  font-size: 20pt;
+  font-weight:500;
+}
+
 .md-toolbar-row{
-  background-color: #00b73d !important;
+  background-color: hsl(0, 0%, 11%) !important;
+  padding: 17px;
 }
   .md-toolbar + .md-toolbar {
     margin-top: 16px;
@@ -38,9 +54,10 @@
   }
 
   .logout{
+    width: 120px;
     border-radius: 10px;
     border-color: black;
-    background-color: #018f30;
+    background-color: #5a5a5a;
     font-weight: bold;
     text-transform: none;
   }

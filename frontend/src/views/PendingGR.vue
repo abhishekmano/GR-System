@@ -70,6 +70,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.md-primary{
+    background: hsl(0, 0%, 11%) !important;
+}
 .md-app{
     height: inherit;
   }
@@ -82,10 +85,16 @@ export default {
   }
 
   .md-content {
-    padding: 16px;
+    padding: 160px;
   }
 
 .md-table-cell{
     text-align: left;
+}
+
+.md-card{
+    border-radius: 20px;
+    width: 700px;
+    height: auto;
 }
 </style>
