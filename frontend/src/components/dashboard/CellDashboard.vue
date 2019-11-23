@@ -9,7 +9,7 @@
                 </md-card-header>
 
                 <md-card-content>
-                  <md-icon class="md-size-3x">info</md-icon>
+                  <md-icon class="md-size-2x">info</md-icon>
                 </md-card-content>
               </md-ripple>
             </md-card>
@@ -22,7 +22,7 @@
                 </md-card-header>
 
                 <md-card-content>
-                  <md-icon class="md-size-3x">error_outline</md-icon>
+                  <md-icon class="md-size-2x">error_outline</md-icon>
                 </md-card-content>
                 
               </md-ripple>

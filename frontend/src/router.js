@@ -4,7 +4,6 @@ import Home from './views/Home.vue'
 import UserDash from './views/UserDash'
 import ErrorComponent from './views/Error'
 import NewGrievance from './views/NewGrievance'
-import CellLogin from './components/auth/CellLogin'
 import Success from './views/Success'
 import StatusForm from './views/StatusForm'
 import PendingGR from './views/PendingGR'
@@ -16,6 +15,7 @@ import Contact from './views/Contact'
 import Verification from './views/Verification'
 import Profile from './views/Profile'
 import store from './store'
+import cellLogin from './views/LoginCell'
 
 Vue.use(Router)
 
@@ -40,9 +40,9 @@ const router =  new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
-      path: '/loginCell',
-      name: 'cell-login',
-      component: CellLogin
+      path: '/cellLogin',
+      name: 'logincell',
+      component: cellLogin
     },
     {
       path: '/createGR',
