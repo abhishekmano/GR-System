@@ -88,6 +88,23 @@ cellMethods.getUserByUsername = (info) => {
     })
 }
 
+cellMethods.getUserByCellID = (info) => {
+    console.log("Fetching cell Details "+info.cell_id)
+    return new Promise((resolve,reject) => {
+        model.findOne({
+            where: {
+                'cell_id': info.cell_id
+            }
+        })
+        .then((user) => {
+            resolve(user)
+        })
+        .catch((err) => {
+            reject(err)
+        })
+    })
+}
+
 cellMethods.updatePassword = (info)=>{
     return new Promise((resolve,reject) => {
         bcrypt.hash(info.password,10)

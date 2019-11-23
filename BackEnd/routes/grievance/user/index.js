@@ -2,6 +2,7 @@ const express = require('express')
 const router  = express.Router()
 const grMethods = require('../../../methods/grievance')
 const peopleMethods = require('../../../methods/people')
+const cellMethods = require('../../../methods/cell') //try
 const uid = require('uniqid')
 const multer  = require('multer')
 const mailer = require('../../../middlewares/mail')
@@ -97,14 +98,41 @@ router.get('/token',(req,res) => {
 		info.status = data.status
 		info.resolve_date = data.resolve_date
 		info.remark = data.remark
-		res.json({
-			'success':true,
-			'info':info
-		})
+		info.cell_id = data.cell_id
+		if(data.cell_id){
+			cellMethods.getUserByCellID(info)
+			.then((user)=>{
+					info.user_name = user.user_name
+					info.people_id = user.people_id
+					peopleMethods.getPeopleByID(info)
+					.then((people)=>{
+						info.name = people.name
+						info.number = people.phone
+						res.json({
+							'success':true,
+							'info':info
+						})
+					})
+					.catch((err)=>{
+
+					})
+					
+			})
+			.catch((err)=>{
+				console
+				res.json({
+					'success':false,
+					'error':'couldnt fetch userid',
+					err
+				})
+			})
+		}
+		
 	})
 	.catch((err)=>{
 		res.json({
 			'success':false,
+			'error' :'failed to get greivence info',
 			err
 		})
 	})

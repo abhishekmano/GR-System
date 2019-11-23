@@ -53,6 +53,12 @@
                                     <md-list-item class="">Token Number : {{ data.token }}</md-list-item>
                                     <md-list-item class="">Created on : {{ data.date_created }}</md-list-item>
                                     <md-list-item class="">Grievance Status : {{ data.status }}</md-list-item>
+                                    <md-list-item v-if="data.status == 'accepted'">Cell Member : {{ data.name }}</md-list-item>
+                                    <md-list-item v-if="data.status == 'accepted'"> Contact : {{ data.number }}</md-list-item>
+                                    
+                                    <md-list-item v-if="data.status == 'resolved'">Cell Member : {{ data.name }}</md-list-item>
+                                    <md-list-item v-if="data.status == 'resolved'"> Contact : {{ data.number }}</md-list-item>
+                                    
                                     <md-list-item v-if="data.status == 'resolved'">Resolved on : {{ data.resolve_date }}</md-list-item>
                                     <md-list-item v-if="data.status == 'resolved'">Remarks : {{ data.remark }}</md-list-item>
 
@@ -120,7 +126,9 @@ export default {
                     self.data = res.data.info
                 })
                 .catch((err) => {
-                    console.log(err);            
+                    console.log("prasnam pattii");
+                    console.log(err.error); 
+                    console.log(err);       
                 })
             }
         }
