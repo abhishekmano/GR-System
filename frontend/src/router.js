@@ -16,6 +16,7 @@ import Verification from './views/Verification'
 import Profile from './views/Profile'
 import store from './store'
 import cellLogin from './views/LoginCell'
+import adminlogin from './views/AdminLogin'
 
 Vue.use(Router)
 
@@ -106,6 +107,11 @@ const router =  new Router({
       name:'profile',
       props:true,
       component: Profile
+    },
+    {
+      path : '/adminLogin',
+      name : 'adminlogin',
+      component : adminlogin
     }
   ]
 })

@@ -68,10 +68,11 @@ export default {
   color: grey;
 }
 
-.md-list.md-theme-default .router-link-exact-active .md-list-item-content .md-list-item-text {
+.md-list.md-theme-default .router-link-exact-active .md-list-item-content .md-list-item-text{
   font-size: 20pt;
   color :black;
 
 }
+
 
 </style>
