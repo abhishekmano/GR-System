@@ -79,11 +79,14 @@ export default {
             form:{
                 title: null,
                 description: null,
-                selectedFile:null
+                //selectedFile:null,
+                filename : null,
+                filepath :null
             },
             showNavigation: false,
             showDialog:false,
-            showButton:false
+            showButton:false,
+            file_uploaded: false
         }
     },
     methods:{
@@ -147,7 +150,10 @@ export default {
                 console.log(config)
                 axios.post(process.env.VUE_APP_ROOT_API+'grievance/user/file',fileData,config)
                 .then((res)=>{
-                    console.log(res);              
+                    this.form.filename = res.data.filename;      //to get the file name and details to add to the table
+                    this.form.filepath = res.data.filepath;
+                    this.file_uploaded = true;
+                    console.log(res.data);              
                     alert("Successfully uploaded");
                     this.showDialog=false;
                 })

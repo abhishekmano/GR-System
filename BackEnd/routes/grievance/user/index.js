@@ -2,6 +2,7 @@ const express = require('express')
 const router  = express.Router()
 const grMethods = require('../../../methods/grievance')
 const peopleMethods = require('../../../methods/people')
+const cellMethods = require('../../../methods/cell') //try
 const uid = require('uniqid')
 const multer  = require('multer')
 const mailer = require('../../../middlewares/mail')
@@ -14,7 +15,7 @@ var storage = multer.diskStorage(
 		} ,
         filename: function ( req, file, cb ) {
             //req.body is empty... here is where req.body.new_file_name doesn't exists
-            cb( null, req.user.user_name+file.originalname);
+            cb( null, req.user.user_name+'_'+Date.now()+file.originalname);
         }
     }
 );
@@ -97,14 +98,41 @@ router.get('/token',(req,res) => {
 		info.status = data.status
 		info.resolve_date = data.resolve_date
 		info.remark = data.remark
-		res.json({
-			'success':true,
-			'info':info
-		})
+		info.cell_id = data.cell_id
+		if(data.cell_id){
+			cellMethods.getUserByCellID(info)
+			.then((user)=>{
+					info.user_name = user.user_name
+					info.people_id = user.people_id
+					peopleMethods.getPeopleByID(info)
+					.then((people)=>{
+						info.name = people.name
+						info.number = people.phone
+						res.json({
+							'success':true,
+							'info':info
+						})
+					})
+					.catch((err)=>{
+
+					})
+					
+			})
+			.catch((err)=>{
+				console
+				res.json({
+					'success':false,
+					'error':'couldnt fetch userid',
+					err
+				})
+			})
+		}
+		
 	})
 	.catch((err)=>{
 		res.json({
 			'success':false,
+			'error' :'failed to get greivence info',
 			err
 		})
 	})
@@ -224,6 +252,8 @@ router.post('/submit',function(req,res){
 })
 
 router.post('/file',upload.single('file'),function(req,res){
+	var info = {};
+	console.log("filename is"+info.filename);
 	if (!req.file) {
 		console.log("No file received");
 		
@@ -232,9 +262,15 @@ router.post('/file',upload.single('file'),function(req,res){
 		});
 	
 	  } else {
-		console.log('file received');
+		console.log('file received  SUCCESSFULLY');
+		console.log(req.file);
+		info.filename = req.file.filename;
+		info.filepath = req.file.path;
+		console.log("stored name"+info.filepath);
 		res.json({
-		  success: true
+		  success: true,
+		  filename: info.filename,
+		  filepath: info.filepath
 		})
 	  }
 })

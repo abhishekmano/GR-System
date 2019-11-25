@@ -8,6 +8,7 @@ require('../../middlewares/passport')
 /* GET home page. */
 router.use('/user',passport.authenticate('user_auth', {session: false}), userRouter)
 router.use('/cell',passport.authenticate('cell_auth', {session: false}), cellRouter)
+router.use('/admin',passport.authenticate('cell_auth', {session: false}), cellRouter)
 
 
 module.exports = router;
