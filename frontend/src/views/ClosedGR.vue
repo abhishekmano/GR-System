@@ -6,11 +6,11 @@
         <md-app-drawer md-permanent="clipped" :md-active.sync="showNavigation">
             <Drawer/>
         </md-app-drawer>
-        <md-app-content>
-            <md-table v-model="data" md-card>
+        <md-app-content class="table">
+            <md-table v-model="data" md-card class="content">
                 <md-table-toolbar>
                     <md-table-toolbar>
-                        <h1 class="md-title">Resolved Grievances</h1>
+                        <h1 class="md-title" style="font-size: 20pt; font-weight: bold;">Resolved Grievances</h1>
                     </md-table-toolbar>
                 </md-table-toolbar>
                  <md-table-row slot="md-table-row" slot-scope="{ item }">
@@ -93,4 +93,15 @@ export default {
 .md-table-cell{
     text-align: left;
 }
+
+.table{
+    padding-top: 120px;
+    width: 700px;
+}
+.content{
+    border-radius: 15px;
+    left: 55%;
+    padding: 18px;
+}
+
 </style>

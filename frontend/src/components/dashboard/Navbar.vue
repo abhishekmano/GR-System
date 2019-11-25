@@ -20,9 +20,10 @@
             Sign Up
           </md-button>
 
-          <div style="padding-right: 50px; padding-left; 50px;">
-            <md-icon> account_circle </md-icon> <br>
-            <span style="top: 5px; position: relative">{{$store.getters.userName}}</span>
+          <div style="padding-right: 25px; padding-left; 50px;">
+            <md-icon> account_circle </md-icon>
+            <span style="padding-left: 10px;">{{$store.getters.userName}}</span>
+            <span style="font-size: 20pt; color: rgb(100, 100, 100);"> &nbsp;&nbsp;|</span>
           </div>
           <md-button v-if="$store.getters.isLoggedIn" @click="logout" class="logout">
             Log out
