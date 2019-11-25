@@ -51,7 +51,7 @@
    <!-- FIle upload Modal Ends -->
                 </md-card-content>
                         <md-card-actions style="justify-content: space-around;">
-                            <md-button type="submit" class="md-raised md-primary save" @click="save">Save</md-button> &nbsp; &nbsp; 
+                            <md-button type="submit" class="md-raised md-primary " @click="save">Save</md-button> &nbsp; &nbsp; 
                             <md-button type="submit" class="md-raised md-accent" @click="submit">Submit</md-button>
                             <md-button v-if="showButton" class="md-primary md-raised" @click="showDialog = true">Upload File</md-button>
                         </md-card-actions>
@@ -199,7 +199,7 @@ export default {
   }
 
 .md-primary{
-       background-color:  #00b73d !important;
+       background-color:   hsl(0, 0%, 11%) !important;
 
 }
    // Demo purposes only
@@ -231,10 +231,7 @@ export default {
 
   }
 
-  .save{
-    background-color: hsl(125, 58%, 24%) !important; 
-
-  }
+  
 </style>
 
 

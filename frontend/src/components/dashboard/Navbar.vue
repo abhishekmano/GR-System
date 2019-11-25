@@ -22,7 +22,7 @@
 
           <div style="padding-right: 50px; padding-left; 50px;">
             <md-icon> account_circle </md-icon> <br>
-            <span style="top: 5px; position: relative">{{this.$store.getters.userName}}</span>
+            <span style="top: 5px; position: relative">{{$store.getters.userName}}</span>
           </div>
           <md-button v-if="$store.getters.isLoggedIn" @click="logout" class="logout">
             Log out

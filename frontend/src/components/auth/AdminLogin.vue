@@ -12,7 +12,7 @@
     <form novalidate class="md-layout md-alignment-space-around-center" style="padding-top: 5vh">
       <md-card class="md-layout-item login-form">
         <md-card-header>
-          <div class="md-title" style="font-weight:bolder; font-size: 20pt;"><strong> Grievance Cell Log In</strong></div>
+          <div class="md-title" style="font-weight:bolder; font-size: 20pt;"><strong> Admin Log In</strong></div>
         </md-card-header>
 
         <md-card-content class="md-layout md-alignment-space-around-center " style="padding: 30px;">
@@ -83,7 +83,7 @@
 <script>
   import axios from 'axios'
   export default {
-    name: 'CellLogin',
+    name: 'adminlogin',
     data: () => ({
       form: {
         userName:null,
