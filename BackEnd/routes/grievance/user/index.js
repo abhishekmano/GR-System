@@ -15,7 +15,7 @@ var storage = multer.diskStorage(
 		} ,
         filename: function ( req, file, cb ) {
             //req.body is empty... here is where req.body.new_file_name doesn't exists
-            cb( null, req.user.user_name+file.originalname);
+            cb( null, req.user.user_name+'_'+Date.now()+file.originalname);
         }
     }
 );
@@ -252,6 +252,8 @@ router.post('/submit',function(req,res){
 })
 
 router.post('/file',upload.single('file'),function(req,res){
+	var info = {};
+	console.log("filename is"+info.filename);
 	if (!req.file) {
 		console.log("No file received");
 		
@@ -260,9 +262,15 @@ router.post('/file',upload.single('file'),function(req,res){
 		});
 	
 	  } else {
-		console.log('file received');
+		console.log('file received  SUCCESSFULLY');
+		console.log(req.file);
+		info.filename = req.file.filename;
+		info.filepath = req.file.path;
+		console.log("stored name"+info.filepath);
 		res.json({
-		  success: true
+		  success: true,
+		  filename: info.filename,
+		  filepath: info.filepath
 		})
 	  }
 })
