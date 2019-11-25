@@ -52,11 +52,13 @@ export default {
 <style>
 
 .md-avatar.md-large {
-    min-width: 64px;
-    min-height: 64px;
+    width: 30%;
+    height : 30%;
+    min-width: 150px;
+    min-height: 150px;
     font-size: 32px;
     margin-top: 45px;
-    border-radius: 10px !important;
+    border-radius: 0px !important;
 }
 
 .md-list-item-content{

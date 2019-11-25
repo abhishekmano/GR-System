@@ -78,6 +78,10 @@ h1{
   }
 }
 
+img{
+  height: 30%;
+  width : 30%;
+}
 /* .footer{
   background : rgb(82, 82, 82);
   font-family: 'Roboto' , sans-serif;

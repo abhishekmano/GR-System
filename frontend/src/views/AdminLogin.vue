@@ -72,6 +72,11 @@ h1{
   }
 }
 
+img{
+    height: 30%;
+    width : 30%;
+}
+
 .footer{
    font-family: 'Roboto' , sans-serif;
    position: fixed;
