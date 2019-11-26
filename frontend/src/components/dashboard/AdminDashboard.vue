@@ -1,43 +1,49 @@
 <template>
-    <div>
-        <div class="md-layout md-alignment-center-center">
-            <md-card class="md-layout-item md-size-70">
+    <div style="padding-top: 50px;">
+        <div class="md-layout md-gutter md-alignment-top-center">
+          <a @click="route('status')">
+            <md-card md-with-hover>
+              <md-ripple>
                 <md-card-header>
-                    <div class="md-title">Change Password</div>
+                  <div class="md-title" style="font-size: 15pt;">Change User Password</div>
                 </md-card-header>
+
                 <md-card-content>
-                    <div class="md-layout md-gutter md-alignment-center-center">
-                        <div class="md-layout-item md-size-70 md-small-size-100">
-                            <md-field>
-                                <label for="username">Username</label>
-                                <md-input name="username" id="username" v-model="form.username" />
-                            </md-field>
-                        </div>
-                        <div class="md-layout-item md-size-70 md-small-size-100">
-                            <md-field>
-                                <label for="name">Password</label>
-                                <md-input type="password" name="name" id="name" v-model="form.password" />
-                            </md-field>
-                        </div>
-                        <div class="md-layout-item md-size-70 md-small-size-100">
-                            <md-field>
-                                <label for="type">Type</label>
-                                <md-select v-model="form.type" name="type" id="type">
-                                    <md-option value="user">User</md-option>
-                                    <md-option value="cell">Cell Member</md-option>
-                                </md-select>
-                            </md-field>
-                        </div>
-
-                    </div>
+                  <md-icon class="md-size-2x" style="color: rgb(83, 172, 255);">edit</md-icon>
                 </md-card-content>
-                <md-card-actions>
-                    <md-button type="submit" class="md-raised md-primary" @click="submit">Change Password</md-button>
-                </md-card-actions> 
-
+              </md-ripple>
             </md-card>
+          </a>
+          <a @click="route('addCell')">
+            <md-card md-with-hover>
+              <md-ripple>
+                <md-card-header>
+                  <div class="md-title" style="font-size: 15pt;">Add Cell Member</div>
+                </md-card-header>
 
+                <md-card-content>
+                  <!-- <md-icon class="md-size-2x" style="color: orange;">history</md-icon> -->
+                  <span style="font-size: 40pt; font-weight: bolder; color: green;"> + </span>
+                </md-card-content>
+              </md-ripple>
+            </md-card>
+          </a>
         </div>
+        <div class="md-layout md-gutter md-alignment-top-center">
+          <a @click="route('closed')">
+          <md-card md-with-hover>
+            <md-ripple>
+              <md-card-header>
+                <div class="md-title" style="font-size: 15pt;">Remove Cell Member</div>
+              </md-card-header>
+
+              <md-card-content>
+                   <span style="font-size: 40pt; font-weight: bolder; color: red;"> x </span>
+              </md-card-content>
+            </md-ripple>
+          </md-card>
+          </a>
+        </div>      
     </div>
 </template>
 
@@ -94,6 +100,7 @@ export default {
 
 <style lang="scss" scoped>
 .md-card {
+    border-radius: 15px;
     width: 320px;
     margin: 4px;
     display: inline-block;
@@ -108,7 +115,7 @@ export default {
   }
 
   .md-content {
-    padding: 16px;
+    padding: 70px;
   }
 
   .md-layout{

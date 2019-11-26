@@ -36,15 +36,15 @@
    <!-- FIle upload Modal -->
 
                     <div>
-                        <md-dialog :md-active.sync="showDialog">
-                        <md-dialog-title>Upload File</md-dialog-title>
-                        <md-field>
+                        <md-dialog :md-active.sync="showDialog" class="file">
+                        <md-dialog-title style="text-align: center; font-size: 17pt; font-weight: bold;">Upload File</md-dialog-title>
+                        <md-field> 
                                 <!-- <label for="file">Select File</label> -->
                                 <input type='file' name='file' id="file" @change='onFileSelected'>
                             </md-field>
                         <md-dialog-actions>
-                            <md-button class="md-primary" @click="showDialog = false">Close</md-button>
-                            <md-button ref="uploadBtn" class="md-primary" @click="uploadFile">upload</md-button>
+                            <md-button class="md-primary" @click="showDialog = false" style="color: white !important;">Close</md-button>
+                            <md-button ref="uploadBtn" class="md-primary" @click="uploadFile" style="color: white !important;">Upload</md-button>
                         </md-dialog-actions>
                         </md-dialog>  
                     </div>
@@ -123,7 +123,7 @@ export default {
             .then((res)=>{
                 console.log("saved ");
                 console.log(res.data.info);              
-                alert("Successfully saved");
+                // alert("Successfully saved");
                 self.showButton=true;
             })
             .catch((err)=>{
@@ -154,7 +154,7 @@ export default {
                     this.form.filepath = res.data.filepath;
                     this.file_uploaded = true;
                     console.log(res.data);              
-                    alert("Successfully uploaded");
+                    // alert("Successfully uploaded");
                     this.showDialog=false;
                 })
                 .catch((err)=>{
@@ -230,6 +230,12 @@ export default {
     text-align: inherit;
 
   }
+
+.file{
+    border-radius: 15px;
+    padding: 15px;
+}
+
 
   
 </style>
