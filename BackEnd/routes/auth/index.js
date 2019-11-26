@@ -184,14 +184,19 @@ router.post('/celljoin',(req,res,next) => {
             })
             
         })
-        .catch((err) => {
+        .catch((err) => { 
             console.log("error is "+err.message);
-            if(err.message == "Validation error"){
+            if(err.message == "notNull Violation: cell.user_name cannot be null"){
+                    person.error = "username error";
+            }
+            else if(err.message == "data and salt arguments required"){
+                person.error = "password error";
+            }
                 peopleMethods.removePerson(ppl)
                 .then((result) => {
                     res.json({
                         "Success":false,
-                        "error":"username already in use"
+                        "error":person.error
                     })
                 })
                 .catch((err) => {
@@ -200,13 +205,6 @@ router.post('/celljoin',(req,res,next) => {
                         "error":err.message
                     })
                 })
-            }
-            else{
-                res.json({
-                    "Success":false,
-                    "error":err.message
-                })
-            }
         })
     })
     .catch((err) => {
@@ -218,12 +216,13 @@ router.post('/celljoin',(req,res,next) => {
                 "error":"Email already in use"
             })
         }
-        // else if(err.message =="Validation error: Validation isAlphanumeric on user_name failed"){
-        //     res.json({
-        //         "Success":false,
-        //         "error":"username error"
-        //     })
-        //}
+        else if(err.message =="notNull Violation: people.name cannot be null"){
+            console.log("people error") ;
+            res.json({
+                 "Success":false,
+                 "error":"name error"
+             })
+        }
         else {
             res.json({
                 "Success":false,

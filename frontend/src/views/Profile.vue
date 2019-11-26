@@ -257,12 +257,12 @@ export default {
     return {
       form:{
           username:this.$store.getters.userName,
-          name:"",
-          email:"",
-          phone:"",
-          oldpassword:"",
-          newpassword:"",
-          confpassword:"",
+          name:null,
+          email:null,
+          phone:null,
+          oldpassword:null,
+          newpassword:null,
+          confpassword:null,
           usertype:this.$store.getters.usertype
           
       },

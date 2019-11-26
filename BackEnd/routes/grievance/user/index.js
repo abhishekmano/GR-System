@@ -86,6 +86,7 @@ router.get('/closed',(req,res) => {
 })
 
 router.get('/token',(req,res) => {
+	console.log("TOCKEN STATUS REACHED");
 	var info = {}
 	info.token = req.query.token
 	grMethods.getGrievance(info)

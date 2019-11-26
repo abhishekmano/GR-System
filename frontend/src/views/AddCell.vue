@@ -16,16 +16,17 @@
                 <md-card-content>
                     <div class="md-layout md-gutter md-alignment-center-center">
                         <div class="md-layout-item md-size-70 md-small-size-100">
-                            <md-field  v-bind:class="{'md-invalid': error.userErr}" class="md-layout-item">
+                            <md-field  v-bind:class="{'md-invalid': error.nameErr}" class="md-layout-item">
                                 <label for="cellid">Cell Name</label>
                                 <md-input class="cellname" name="cellname" id="cellname" v-model="form.name"/>
-                                <span class="md-error">{{ error.userMsg }}</span>
+                                <span class="md-error">{{ error.nameMsg }}</span>
                             </md-field>
                         </div>
                         <div class="md-layout-item md-size-70 md-small-size-100">
-                            <md-field>
+                            <md-field v-bind:class="{'md-invalid': error.userErr}" class="md-layout-item">
                                 <label for="username">Username</label>
                                 <md-input class="username" name="username" id="username" v-model="form.username" />
+                                <span class="md-error">{{ error.userMsg }}</span>
                             </md-field>
                         </div>
 
@@ -45,9 +46,10 @@
                             </md-field>
                         </div>
                          <div class="md-layout-item md-size-70 md-small-size-100">
-                            <md-field>
+                            <md-field  v-bind:class="{'md-invalid': error.passErr}" class="md-layout-item">
                                 <label for="phone">Temporary Password</label>
                                 <md-input class="password" name="password" id="password" v-model="form.password" />
+                                <span class="md-error">{{ error.passMsg }}</span>
                             </md-field>
                         </div>
                     </div>
@@ -77,14 +79,14 @@ export default {
      data: function(){
     return {
       form:{
-          username:"",
-          name:"",
-          email:"",
-          phone:"",
+          username:null,
+          name:null,
+          email:null,
+          phone:null,
           oldpassword:"",
           newpassword:"",
           confpassword:"",
-          password:""
+          password:null
           
       },
       error: {
@@ -96,8 +98,10 @@ export default {
           mailMsg :null,
           phoneErr:false,
           phoneMsg: null,
+          nameErr: false,
+          nameMsg:null,
           userErr: false,
-          userMsg:null,
+          userMsg: null
         },
       
       showDialog:false,
@@ -109,6 +113,7 @@ export default {
   },  
   methods:{
       addCell:function(){
+          this.makeallnull();
           console.log("updating.....")
           var self = this
           var data = {
@@ -129,6 +134,7 @@ export default {
             .then((res)=>{
                 if(res.data.Success){
                     this.newcell = true
+                    //edaaa ivide success aanu bakki add cheyy this.newcell true akkettond athu vech cheyy
                 console.log("saved ");
                 //console.log(res);
                 }
@@ -140,14 +146,25 @@ export default {
                         this.error.mailErr = true ;
                         this.error.mailMsg = "Enter valid data";
                     }
-                    else if(res.data.error = "Email already in use"){
+                    else if(res.data.error == "Email already in use"){
                         this.error.mailErr = true ;
                         this.error.mailMsg = "Email already in use";
                     }
-                    else if(res.data.error = "username error"){
+                    else if(res.data.error == "name error"){
+                       // console.log("Entered user error")
+                        this.error.nameErr = true ;
+                        this.error.nameMsg = "Enter valid name";
+                    }
+                    else if(res.data.error == "username error"){
+                        console.log("Entered user error");
                         this.error.userErr = true ;
                         this.error.userMsg = "Enter valid username";
                     }
+                    else if(res.data.error == "password error"){
+                        this.error.passErr = true ;
+                        this.error.passMsg = "Enter valid password";
+                    }
+
                     console.log("something wrong");
                 }
                   
@@ -157,6 +174,19 @@ export default {
                 console.log(err);
             })
       },
+       makeallnull:function(){
+          console.log("makeall value null called");
+          this.form.newpassword = "";
+          this.form.oldpassword = "";
+          this.form.confpassword = "";
+          this.error.passErr = false;
+          this.error.oldpassErr = false;
+          this.error.mailErr = false;
+          this.error.phoneErr = false;
+          this.error.userErr = false;
+          this.error.nameErr = false;
+          this.showDialog = true ;
+      }
   },
 
 }
