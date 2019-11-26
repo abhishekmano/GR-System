@@ -162,6 +162,7 @@ router.post('/joinadmin',(req,res,next) => {
 })
 
 router.post('/celljoin',(req,res,next) => {
+    console.log("Entered celljoin");
     var person = {}
     person.people_id = uid();
     person.name = req.body.name
@@ -184,6 +185,7 @@ router.post('/celljoin',(req,res,next) => {
             
         })
         .catch((err) => {
+            console.log("error is "+err.message);
             if(err.message == "Validation error"){
                 peopleMethods.removePerson(ppl)
                 .then((result) => {
@@ -208,16 +210,24 @@ router.post('/celljoin',(req,res,next) => {
         })
     })
     .catch((err) => {
+        console.log("Error is "+ err.message+"  END");
         if(err.message == "Validation error"){
+            console.log("Entered if ");
             res.json({
                 "Success":false,
                 "error":"Email already in use"
             })
         }
-        else{
+        // else if(err.message =="Validation error: Validation isAlphanumeric on user_name failed"){
+        //     res.json({
+        //         "Success":false,
+        //         "error":"username error"
+        //     })
+        //}
+        else {
             res.json({
                 "Success":false,
-                "error":err.message
+                "error":"mail,phone error"
             })
         }        
     })
